@@ -1,0 +1,191 @@
+---
+
+---
+
+<section
+    class="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-950 text-white pt-20"
+>
+    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full opacity-80"
+    ></canvas>
+
+    <div class="container mx-auto px-6 relative z-10 text-center">
+        <div
+            class="inline-block mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-sm font-medium text-primary-300 animate-fade-in-up"
+        >
+            Redefining Digital Experiences
+        </div>
+        <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-tight animate-fade-in-up delay-100"
+        >
+            We Build <span
+                class="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-300"
+                >Digital</span
+            >
+            <br />
+            <span class="italic font-light text-white">Masterpieces</span>
+        </h1>
+        <p
+            class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200"
+        >
+            We are a creative agency that blends strategy, design, and
+            technology to build brands that matter in the digital age.
+        </p>
+        <div
+            class="flex flex-col md:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300"
+        >
+            <a
+                href="#work"
+                class="px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary-600 transition-all hover:scale-105 shadow-lg shadow-primary/25"
+            >
+                View Our Work
+            </a>
+            <a
+                href="#contact"
+                class="px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 backdrop-blur-sm transition-all hover:scale-105 border border-white/10"
+            >
+                Contact Us
+            </a>
+        </div>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <a
+            href="#services"
+            aria-label="Scroll down"
+            class="text-white/50 hover:text-primary transition-colors duration-300"
+        >
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </a>
+    </div>
+</section>
+
+<script>
+    // Simple fluid-like animation using Canvas API
+    const canvas = document.getElementById(
+        "hero-canvas",
+    ) as HTMLCanvasElement | null;
+
+    if (canvas) {
+        const ctx = canvas.getContext("2d");
+        let width: number, height: number;
+        let particles: Particle[] = [];
+
+        function resize() {
+            if (!canvas) return;
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            x: number;
+            y: number;
+            vx: number;
+            vy: number;
+            size: number;
+            color: string;
+
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = (Math.random() - 0.5) * 1.5;
+                this.size = Math.random() * 300 + 150; // Large blobs
+                // Orange and dark shades
+                const colors = ["#fe8500", "#ef6a00", "#c64e00", "#2a2a2a"];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < -this.size) this.x = width + this.size;
+                if (this.x > width + this.size) this.x = -this.size;
+                if (this.y < -this.size) this.y = height + this.size;
+                if (this.y > height + this.size) this.y = -this.size;
+            }
+
+            draw() {
+                if (!ctx) return;
+                ctx.beginPath();
+                const gradient = ctx.createRadialGradient(
+                    this.x,
+                    this.y,
+                    0,
+                    this.x,
+                    this.y,
+                    this.size,
+                );
+                gradient.addColorStop(0, this.color + "33"); // Low opacity hex
+                gradient.addColorStop(1, "transparent");
+                ctx.fillStyle = gradient;
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            resize();
+            particles = [];
+            for (let i = 0; i < 20; i++) {
+                particles.push(new Particle());
+            }
+            animate();
+        }
+
+        function animate() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, width, height);
+
+            // Composite operation for blending
+            ctx.globalCompositeOperation = "screen";
+
+            particles.forEach((p) => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener("resize", resize);
+        // Initialize after a small delay to ensure container is ready
+        setTimeout(init, 100);
+    }
+</script>
+
+<style>
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .delay-100 {
+        animation-delay: 0.1s;
+    }
+    .delay-200 {
+        animation-delay: 0.2s;
+    }
+    .delay-300 {
+        animation-delay: 0.3s;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

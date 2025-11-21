@@ -1,0 +1,278 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
+
+const features = [
+    {
+        title: "Targeted Local Reach",
+        description:
+            "Our services ensure your business appears at the top of search results for local customers who matter most to your success.",
+    },
+    {
+        title: "Affordable Yet Effective",
+        description:
+            "We deliver high-quality results at competitive prices, helping small and medium-sized businesses compete locally.",
+    },
+    {
+        title: "Google-Friendly SEO Techniques",
+        description:
+            "Using proven strategies, we enhance visibility on Google Maps and local search results to keep you ahead of competitors.",
+    },
+];
+
+const services = [
+    {
+        title: "Google My Business (GMB) Optimization",
+        points: [
+            "Profile Setup & Management: Complete GMB profile creation and maintenance",
+            "Keyword-Rich Descriptions: Boost rankings with targeted local keywords",
+            "Audience Engagement: Manage reviews and update content regularly",
+        ],
+    },
+    {
+        title: "Localized Keyword Research",
+        points: [
+            "Location-Specific Phrases: Target “near me” and area-specific searches",
+            "Competitor Analysis: Develop strategies to outperform local competitors",
+        ],
+    },
+    {
+        title: "On-Page SEO for Local Businesses",
+        points: [
+            "Local Landing Pages: Create location/service-specific pages",
+            "Schema Markup: Implement structured data for better understanding",
+            "NAP Consistency: Maintain uniform Name, Address, Phone across platforms",
+        ],
+    },
+    {
+        title: "Citation Building & Management",
+        points: [
+            "Local Directory Setup: List on Yelp, Yellow Pages, and industry-specific platforms",
+            "NAP Audits: Ensure consistent business information everywhere",
+        ],
+    },
+    {
+        title: "Localized Content Marketing",
+        points: [
+            "Local Blog Posts: Cover area events and neighborhood news",
+            "Social Media Campaigns: Share community-focused updates",
+            "Video Content: Showcase local involvement and services",
+        ],
+    },
+    {
+        title: "Reputation Management",
+        points: [
+            "Review Generation: Encourage customer testimonials",
+            "Response Management: Address feedback promptly",
+            "Crisis Management: Professionally handle negative reviews",
+        ],
+    },
+];
+
+const benefits = [
+    "Higher Visibility: Rank better in local “near me” searches",
+    "Increased Foot Traffic: Drive more visitors to your physical location",
+    "Enhanced Credibility: Build trust through positive reviews",
+    "Cost-Effective Growth: Maximize ROI with targeted strategies",
+];
+
+const process = [
+    {
+        step: "01",
+        title: "Comprehensive Audit",
+        description:
+            "Analyze current performance and local market opportunities",
+    },
+    {
+        step: "02",
+        title: "Custom Strategy Development",
+        description: "Create targeted plan for your community",
+    },
+    {
+        step: "03",
+        title: "Precision Implementation",
+        description: "Optimize GMB, website, and citations",
+    },
+    {
+        step: "04",
+        title: "Continuous Optimization",
+        description: "Monitor analytics and refine strategies",
+    },
+];
+---
+
+<Layout
+    title="Local SEO - Craft Presence"
+    description="Enhance Your Local Visibility"
+>
+    <Header />
+    <main>
+        <PageHeader
+            title="Local SEO"
+            subtitle="Services to Enhance Your Local Visibility"
+        />
+
+        <!-- Intro & Why Us -->
+        <section class="py-24 bg-white reveal">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <p class="text-lg text-neutral-600 leading-relaxed mb-12">
+                        At Craft Presence, we provide specialized local SEO
+                        services to ensure customers in your area can easily
+                        find your business online. Whether your goal is to
+                        increase website inquiries or attract more foot traffic,
+                        our affordable solutions deliver measurable results. Let
+                        us help you connect with your community and establish
+                        your brand as the go-to choice in your local market.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-8 text-left">
+                        {
+                            features.map((feature) => (
+                                <div class="p-6 bg-neutral-50 rounded-2xl border border-neutral-100">
+                                    <h4 class="text-xl font-bold text-primary mb-3">
+                                        {feature.title}
+                                    </h4>
+                                    <p class="text-neutral-600 text-sm">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comprehensive Services -->
+        <section class="py-24 bg-neutral-950 text-white reveal">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2
+                        class="text-sm font-bold text-primary tracking-widest uppercase mb-3"
+                    >
+                        Our Services
+                    </h2>
+                    <h3 class="text-3xl md:text-4xl font-bold">
+                        Local SEO Solutions
+                    </h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    {
+                        services.map((service) => (
+                            <div class="p-8 rounded-3xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                                <h4 class="text-2xl font-bold text-white mb-6">
+                                    {service.title}
+                                </h4>
+                                <ul class="space-y-3">
+                                    {service.points.map((point) => (
+                                        <li class="flex items-start gap-3 text-neutral-400">
+                                            <svg
+                                                class="w-5 h-5 text-primary shrink-0 mt-1"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M5 13l4 4L19 7"
+                                                />
+                                            </svg>
+                                            <span>{point}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-24 bg-white reveal">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2
+                        class="text-sm font-bold text-primary tracking-widest uppercase mb-3"
+                    >
+                        Our Process
+                    </h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-neutral-900">
+                        How We Achieve Success
+                    </h3>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-8">
+                    {
+                        process.map((step) => (
+                            <div class="relative">
+                                <span class="text-6xl font-bold text-neutral-100 absolute -top-8 -left-4 z-0">
+                                    {step.step}
+                                </span>
+                                <div class="relative z-10 pt-8">
+                                    <h4 class="text-xl font-bold text-neutral-900 mb-3">
+                                        {step.title}
+                                    </h4>
+                                    <p class="text-neutral-600 text-sm">
+                                        {step.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="py-24 bg-neutral-50 reveal">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h3
+                        class="text-3xl font-bold text-neutral-900 mb-8 text-center"
+                    >
+                        Key Benefits
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        {
+                            benefits.map((benefit) => (
+                                <div class="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
+                                    <div class="w-2 h-2 rounded-full bg-primary shrink-0" />
+                                    <p class="text-neutral-700 font-medium">
+                                        {benefit}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-24 bg-primary text-white text-center reveal">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Dominate Your Local Market
+                </h2>
+                <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                    We’re dedicated to helping businesses succeed locally
+                    through tailored SEO solutions.
+                </p>
+                <a
+                    href="/contact"
+                    class="inline-block px-10 py-5 bg-white text-primary font-bold text-lg rounded-full hover:bg-neutral-100 transition-all hover:scale-105 shadow-xl"
+                >
+                    Get Found Locally
+                </a>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

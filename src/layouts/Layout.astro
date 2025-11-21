@@ -1,14 +1,56 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Premium Web Development Agency" } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
-	<body>
+	<body
+		class="bg-neutral-50 text-neutral-900 font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-white"
+	>
 		<slot />
+		<script>
+			// Simple scroll reveal script
+			const observerOptions = {
+				root: null,
+				rootMargin: "0px",
+				threshold: 0.1,
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("in-view");
+						observer.unobserve(entry.target);
+					}
+				});
+			}, observerOptions);
+
+			document.addEventListener("DOMContentLoaded", () => {
+				const revealElements = document.querySelectorAll(".reveal");
+				revealElements.forEach((el) => observer.observe(el));
+			});
+		</script>
 	</body>
 </html>
 

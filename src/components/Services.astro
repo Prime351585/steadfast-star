@@ -1,0 +1,60 @@
+---
+const services = [
+  {
+    title: "Web Development",
+    description: "Custom, scalable, and high-performance websites tailored to your brand's needs.",
+    icon: "code"
+  },
+  {
+    title: "UI/UX Design",
+    description: "User-centric designs that are intuitive, engaging, and visually stunning.",
+    icon: "palette"
+  },
+  {
+    title: "E-Commerce",
+    description: "Robust online stores that drive sales and provide seamless shopping experiences.",
+    icon: "shopping-bag"
+  },
+  {
+    title: "SEO Optimization",
+    description: "Data-driven strategies to improve your visibility and rank higher on search engines.",
+    icon: "trending-up"
+  }
+];
+---
+
+<section id="services" class="py-24 bg-white relative overflow-hidden">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">Our Services</h2>
+      <h3 class="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">We Craft Digital Experiences</h3>
+      <p class="text-neutral-600 text-lg">From concept to launch, we provide end-to-end solutions to help your business thrive in the digital landscape.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service, index) => (
+        <div class="group p-8 rounded-3xl bg-neutral-50 hover:bg-neutral-900 transition-all duration-500 hover:-translate-y-2 cursor-pointer border border-neutral-100 hover:border-neutral-800">
+          <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
+            <!-- Simple SVG Icons based on name -->
+            {service.icon === 'code' && (
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+            )}
+            {service.icon === 'palette' && (
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+            )}
+            {service.icon === 'shopping-bag' && (
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            )}
+            {service.icon === 'trending-up' && (
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            )}
+          </div>
+          <h4 class="text-xl font-bold text-neutral-900 group-hover:text-white mb-3 transition-colors duration-300">{service.title}</h4>
+          <p class="text-neutral-600 group-hover:text-neutral-400 transition-colors duration-300 leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

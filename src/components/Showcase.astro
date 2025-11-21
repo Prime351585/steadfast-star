@@ -1,0 +1,100 @@
+---
+const projects = [
+    {
+        title: "Lumina E-Commerce",
+        category: "Web Development",
+        image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+        title: "FitTrack Pro",
+        category: "Mobile App",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+        title: "Nexus Dashboard",
+        category: "UI/UX Design",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+        title: "EcoTravel",
+        category: "Branding",
+        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+];
+---
+
+<section id="work" class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="flex justify-between items-end mb-16">
+            <div>
+                <h2
+                    class="text-sm font-bold text-primary tracking-widest uppercase mb-3"
+                >
+                    Selected Work
+                </h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-neutral-900">
+                    Our Portfolio
+                </h3>
+            </div>
+            <a
+                href="#"
+                class="hidden md:inline-flex items-center font-semibold text-primary hover:text-primary-700 transition-colors"
+            >
+                View All Projects
+                <svg
+                    class="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+                >
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {
+                projects.map((project) => (
+                    <div class="group relative overflow-hidden rounded-3xl aspect-4/3 cursor-pointer">
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                            <span class="text-primary font-medium mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                {project.category}
+                            </span>
+                            <h4 class="text-3xl font-bold text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                                {project.title}
+                            </h4>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="mt-12 text-center md:hidden">
+            <a
+                href="#"
+                class="inline-flex items-center font-semibold text-primary hover:text-primary-700 transition-colors"
+            >
+                View All Projects
+                <svg
+                    class="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+                >
+            </a>
+        </div>
+    </div>
+</section>

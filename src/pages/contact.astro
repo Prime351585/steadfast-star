@@ -1,0 +1,203 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const contactInfo = [
+    {
+        icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+        title: "Email Us",
+        value: "hello@craftpresence.com",
+        link: "mailto:hello@craftpresence.com",
+    },
+    {
+        icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+        title: "Business Hours",
+        value: "Mon - Fri: 9:00 AM - 6:00 PM",
+        link: null,
+    },
+];
+
+const socialLinks = [
+    { name: "LinkedIn", url: "#" },
+    { name: "Twitter", url: "#" },
+    { name: "Instagram", url: "#" },
+    { name: "Facebook", url: "#" },
+];
+---
+
+<Layout title="Contact Us - Craft Presence" description="Get in Touch">
+    <Header />
+    <main>
+        <PageHeader title="Contact Us" subtitle="Let's Start a Conversation" />
+
+        <section class="py-24 bg-white reveal">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <!-- Contact Info -->
+                    <div>
+                        <h2
+                            class="text-sm font-bold text-primary tracking-widest uppercase mb-3"
+                        >
+                            Get In Touch
+                        </h2>
+                        <h3
+                            class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6"
+                        >
+                            We'd Love to Hear from You
+                        </h3>
+                        <p
+                            class="text-neutral-600 text-lg leading-relaxed mb-10"
+                        >
+                            Whether you have a question about our services,
+                            pricing, or just want to say hello, our team is
+                            ready to answer all your questions.
+                        </p>
+
+                        <div class="space-y-8 mb-12">
+                            {
+                                contactInfo.map((item) => (
+                                    <div class="flex items-start gap-4">
+                                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                            <svg
+                                                class="w-6 h-6"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d={item.icon}
+                                                />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-bold text-neutral-900">
+                                                {item.title}
+                                            </h4>
+                                            {item.link ? (
+                                                <a
+                                                    href={item.link}
+                                                    class="text-neutral-600 hover:text-primary transition-colors"
+                                                >
+                                                    {item.value}
+                                                </a>
+                                            ) : (
+                                                <p class="text-neutral-600">
+                                                    {item.value}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-bold text-neutral-900 mb-4">
+                                Follow Us
+                            </h4>
+                            <div class="flex gap-4">
+                                {
+                                    socialLinks.map((social) => (
+                                        <a
+                                            href={social.url}
+                                            class="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-primary hover:text-white transition-colors"
+                                        >
+                                            <span class="sr-only">
+                                                {social.name}
+                                            </span>
+                                            <svg
+                                                class="w-5 h-5"
+                                                fill="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                            </svg>
+                                        </a>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div
+                        class="bg-neutral-50 p-8 rounded-3xl border border-neutral-100"
+                    >
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label
+                                        for="name"
+                                        class="block text-sm font-medium text-neutral-700 mb-2"
+                                        >Name</label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        for="email"
+                                        class="block text-sm font-medium text-neutral-700 mb-2"
+                                        >Email</label
+                                    >
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                        placeholder="john@example.com"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    for="subject"
+                                    class="block text-sm font-medium text-neutral-700 mb-2"
+                                    >Subject</label
+                                >
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    name="subject"
+                                    class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                    placeholder="How can we help?"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    for="message"
+                                    class="block text-sm font-medium text-neutral-700 mb-2"
+                                    >Message</label
+                                >
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="4"
+                                    class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                    placeholder="Tell us about your project..."
+                                ></textarea>
+                            </div>
+                            <button
+                                type="submit"
+                                class="w-full px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-600 transition-all hover:scale-[1.02] shadow-lg shadow-primary/25"
+                            >
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

@@ -1,0 +1,173 @@
+---
+import { Image } from "astro:assets";
+import logoWhite from "../assets/Logo_with_text_white.png";
+import logoBlack from "../assets/Logo_with_text_black.png";
+
+const navItems = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    {
+        name: "Services",
+        href: "#",
+        subItems: [
+            { name: "Web Development", href: "/services/web-development" },
+            { name: "Digital Marketing", href: "/services/digital-marketing" },
+            { name: "Local SEO", href: "/services/local-seo" },
+            { name: "Branding", href: "/services/branding" },
+            { name: "Ecommerce", href: "/services/ecommerce" },
+        ],
+    },
+    { name: "Contact", href: "/contact" },
+];
+---
+
+<header
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+    id="main-header"
+>
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="/" class="z-50 relative block w-36">
+            <Image
+                src={logoWhite}
+                alt="Craft Presence"
+                class="w-full h-auto object-contain"
+            />
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center gap-8">
+            {
+                navItems.map((item) =>
+                    item.subItems ? (
+                        <div class="relative group">
+                            <button class="flex items-center gap-1 text-sm font-medium text-white/90 hover:text-primary transition-colors py-2">
+                                {item.name}
+                                <svg
+                                    class="w-4 h-4 transition-transform group-hover:rotate-180"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"
+                                    />
+                                </svg>
+                            </button>
+                            <div class="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <div class="bg-neutral-900 border border-white/10 rounded-xl overflow-hidden shadow-xl p-2">
+                                    {item.subItems.map((subItem) => (
+                                        <a
+                                            href={subItem.href}
+                                            class="block px-4 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+                                        >
+                                            {subItem.name}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <a
+                            href={item.href}
+                            class="text-sm font-medium text-white/90 hover:text-primary transition-colors"
+                        >
+                            {item.name}
+                        </a>
+                    ),
+                )
+            }
+            <a
+                href="/contact"
+                class="px-6 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-600 transition-colors"
+            >
+                Let's Talk
+            </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+            id="menu-toggle"
+            class="md:hidden z-50 relative w-10 h-10 flex flex-col justify-center items-center gap-1.5 group cursor-pointer"
+        >
+            <span
+                class="w-6 h-0.5 bg-white transition-all duration-300 group-[.active]:rotate-45 group-[.active]:translate-y-2"
+            ></span>
+            <span
+                class="w-6 h-0.5 bg-white transition-all duration-300 group-[.active]:opacity-0"
+            ></span>
+            <span
+                class="w-6 h-0.5 bg-white transition-all duration-300 group-[.active]:-rotate-45 group-[.active]:-translate-y-2"
+            ></span>
+        </button>
+
+        <!-- Mobile Menu Overlay -->
+        <div
+            id="mobile-menu"
+            class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-8 md:hidden overflow-y-auto py-20"
+        >
+            {
+                navItems.map((item) =>
+                    item.subItems ? (
+                        <div class="flex flex-col items-center gap-4">
+                            <span class="text-2xl font-bold text-white/50">
+                                {item.name}
+                            </span>
+                            {item.subItems.map((subItem) => (
+                                <a
+                                    href={subItem.href}
+                                    class="mobile-link text-xl font-bold text-white hover:text-primary transition-colors"
+                                >
+                                    {subItem.name}
+                                </a>
+                            ))}
+                        </div>
+                    ) : (
+                        <a
+                            href={item.href}
+                            class="mobile-link text-4xl font-bold text-white hover:text-primary transition-colors"
+                        >
+                            {item.name}
+                        </a>
+                    ),
+                )
+            }
+        </div>
+    </div>
+</header>
+
+<script>
+    const header = document.getElementById("main-header");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    // Header scroll effect
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            header?.classList.add("bg-black/80", "backdrop-blur-md", "py-2");
+            header?.classList.remove("py-3");
+        } else {
+            header?.classList.remove("bg-black/80", "backdrop-blur-md", "py-2");
+            header?.classList.add("py-3");
+        }
+    });
+
+    // Mobile menu toggle
+    menuToggle?.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        mobileMenu?.classList.toggle("translate-x-full");
+        document.body.classList.toggle("overflow-hidden");
+    });
+
+    // Close mobile menu on link click
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            menuToggle?.classList.remove("active");
+            mobileMenu?.classList.add("translate-x-full");
+            document.body.classList.remove("overflow-hidden");
+        });
+    });
+</script>

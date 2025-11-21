@@ -1,0 +1,270 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
+
+const features = [
+    {
+        title: "Create a Lasting Impression",
+        description:
+            "Build trust and recognition with a professionally crafted brand that makes powerful audience impact.",
+    },
+    {
+        title: "Consistency Across Platforms",
+        description:
+            "Maintain brand cohesion through our online presence optimization across websites, social media, and marketing materials.",
+    },
+    {
+        title: "Align with Your Goals",
+        description:
+            "Develop strategies that resonate with your vision and communicate effectively with your target audience.",
+    },
+];
+
+const services = [
+    {
+        title: "Brand Strategy Development",
+        points: [
+            "Market Research: Analyze competitors and audience demographics",
+            "Brand Positioning: Define unique value proposition",
+            "Vision/Mission Crafting: Create purpose-driven brand statements",
+        ],
+    },
+    {
+        title: "Logo and Visual Identity Design",
+        points: [
+            "Custom Logo Design: Create iconic brand symbols",
+            "Color & Typography Systems: Establish recognizable style guidelines",
+            "Brand Standards Manual: Ensure visual consistency across all assets",
+        ],
+    },
+    {
+        title: "Content and Messaging Strategy",
+        points: [
+            "Memorable Taglines: Develop impactful brand phrases",
+            "Tone of Voice Guidelines: Define communication personality",
+            "Strategic Content Creation: Produce engaging marketing copy",
+        ],
+    },
+    {
+        title: "Online Presence Optimization",
+        points: [
+            "Website Brand Alignment: Ensure cohesive user experience",
+            "Social Media Branding: Maintain consistent cross-platform identity",
+            "Brand-focused SEO: Optimize for brand-related searches",
+        ],
+    },
+    {
+        title: "Rebranding Services",
+        points: [
+            "Comprehensive Brand Audit: Evaluate current brand equity",
+            "Visual Identity Modernization: Update logos and design systems",
+            "Message Realignment: Adapt messaging to current market trends",
+        ],
+    },
+];
+
+const benefits = [
+    "Distinct Brand Identity: Stand out with memorable visual identity",
+    "Strong Audience Relationships: Build trust through consistent branding",
+    "Omnichannel Consistency: Unified presence across all touchpoints",
+    "Future-Proof Solutions: Scalable strategies for business growth",
+];
+
+const process = [
+    {
+        step: "01",
+        title: "Discovery Phase",
+        description:
+            "Analyze business objectives, target audience, and market position",
+    },
+    {
+        step: "02",
+        title: "Strategic Planning",
+        description: "Develop customized branding roadmap and design concepts",
+    },
+    {
+        step: "03",
+        title: "Creative Execution",
+        description:
+            "Produce high-quality visual assets and marketing materials",
+    },
+    {
+        step: "04",
+        title: "Launch & Maintenance",
+        description: "Implement brand system and provide ongoing support",
+    },
+];
+---
+
+<Layout title="Branding - Craft Presence" description="Elevate Your Business">
+    <Header />
+    <main>
+        <PageHeader
+            title="Branding and Marketing"
+            subtitle="Services to Elevate Your Business"
+        />
+
+        <!-- Intro & Why Us -->
+        <section class="py-24 bg-white reveal">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <p class="text-lg text-neutral-600 leading-relaxed mb-12">
+                        At Craft Presence, we specialize in innovative branding
+                        solutions that transform businesses into unforgettable
+                        brands. Whether launching a startup or revitalizing an
+                        established identity, we offer tailored branding
+                        strategies for all business stages. From impactful brand
+                        identities to consistent online presence management, our
+                        services help you stand out in competitive markets.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-8 text-left">
+                        {
+                            features.map((feature) => (
+                                <div class="p-6 bg-neutral-50 rounded-2xl border border-neutral-100">
+                                    <h4 class="text-xl font-bold text-primary mb-3">
+                                        {feature.title}
+                                    </h4>
+                                    <p class="text-neutral-600 text-sm">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comprehensive Services -->
+        <section class="py-24 bg-neutral-950 text-white reveal">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2
+                        class="text-sm font-bold text-primary tracking-widest uppercase mb-3"
+                    >
+                        Our Services
+                    </h2>
+                    <h3 class="text-3xl md:text-4xl font-bold">
+                        Comprehensive Branding
+                    </h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    {
+                        services.map((service) => (
+                            <div class="p-8 rounded-3xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                                <h4 class="text-2xl font-bold text-white mb-6">
+                                    {service.title}
+                                </h4>
+                                <ul class="space-y-3">
+                                    {service.points.map((point) => (
+                                        <li class="flex items-start gap-3 text-neutral-400">
+                                            <svg
+                                                class="w-5 h-5 text-primary shrink-0 mt-1"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M5 13l4 4L19 7"
+                                                />
+                                            </svg>
+                                            <span>{point}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="py-24 bg-white reveal">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2
+                        class="text-sm font-bold text-primary tracking-widest uppercase mb-3"
+                    >
+                        Our Process
+                    </h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-neutral-900">
+                        How We Build Your Brand
+                    </h3>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-8">
+                    {
+                        process.map((step) => (
+                            <div class="relative">
+                                <span class="text-6xl font-bold text-neutral-100 absolute -top-8 -left-4 z-0">
+                                    {step.step}
+                                </span>
+                                <div class="relative z-10 pt-8">
+                                    <h4 class="text-xl font-bold text-neutral-900 mb-3">
+                                        {step.title}
+                                    </h4>
+                                    <p class="text-neutral-600 text-sm">
+                                        {step.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="py-24 bg-neutral-50 reveal">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h3
+                        class="text-3xl font-bold text-neutral-900 mb-8 text-center"
+                    >
+                        Key Benefits
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        {
+                            benefits.map((benefit) => (
+                                <div class="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
+                                    <div class="w-2 h-2 rounded-full bg-primary shrink-0" />
+                                    <p class="text-neutral-700 font-medium">
+                                        {benefit}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-24 bg-primary text-white text-center reveal">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Build Your Brand with Craft Presence
+                </h2>
+                <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                    We’re passionate about helping businesses unlock their
+                    potential through strategic branding.
+                </p>
+                <a
+                    href="/contact"
+                    class="inline-block px-10 py-5 bg-white text-primary font-bold text-lg rounded-full hover:bg-neutral-100 transition-all hover:scale-105 shadow-xl"
+                >
+                    Start Branding
+                </a>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
