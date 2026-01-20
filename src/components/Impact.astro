@@ -1,0 +1,31 @@
+---
+const stats = [
+    { value: "7x", label: "Higher conversion rate" },
+    { value: "42x", label: "Faster implementation" },
+    { value: "300%", label: "Higher lead quality" },
+    { value: "4x", label: "Increase in qualified traffic" },
+    { value: "2.5x", label: "Faster lead generation" },
+    { value: "70%", label: "Reduction in irrelevant enquiries" },
+];
+---
+
+<section class="py-20 bg-primary text-white">
+    <div class="container mx-auto px-6">
+        <div
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center divide-x divide-white/20"
+        >
+            {
+                stats.map((stat) => (
+                    <div class="px-4">
+                        <div class="text-4xl md:text-5xl font-bold mb-2">
+                            {stat.value}
+                        </div>
+                        <div class="text-sm md:text-base text-white/90 font-medium">
+                            {stat.label}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

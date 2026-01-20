@@ -1,0 +1,42 @@
+---
+const industries = [
+    "E-Commerce",
+    "Health Care",
+    "Finance",
+    "Educational",
+    "Travel",
+    "Hospitality",
+    "Real Estate",
+    "Transportation",
+    "Photography",
+];
+---
+
+<section class="py-24 bg-white text-neutral-900">
+    <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2
+                class="text-sm font-bold text-primary tracking-widest uppercase mb-3"
+            >
+                Industries We Serve
+            </h2>
+            <h3 class="text-3xl md:text-5xl font-bold mb-6">
+                Tailored Solutions for Every Sector
+            </h3>
+            <p class="text-neutral-600 text-lg">
+                We deliver tailored digital marketing solutions across multiple
+                industries in India.
+            </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+            {
+                industries.map((industry) => (
+                    <div class="px-8 py-4 bg-neutral-50 rounded-full border border-neutral-100 font-medium text-neutral-700 cursor-default">
+                        {industry}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

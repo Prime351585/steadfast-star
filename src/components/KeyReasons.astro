@@ -1,0 +1,64 @@
+---
+const reasons = [
+    {
+        title: "Limited Online Visibility",
+        description:
+            "Most Indian consumers research products and services online before making a purchase. Businesses without a strong digital presence risk losing potential customers.",
+    },
+    {
+        title: "High Competition Across Industries",
+        description:
+            "Indian markets are crowded, and businesses face constant competition. Paid advertising (PPC) campaigns, combined with strategic social media marketing, help brands stand out.",
+    },
+    {
+        title: "Difficulty Generating Quality Leads",
+        description:
+            "Traditional marketing channels often fail to deliver qualified leads. Digital marketing ensures that campaigns target audiences with high purchase intent, improving lead quality and conversion rates.",
+    },
+    {
+        title: "Difficulty Reaching the Right Audience",
+        description:
+            "Targeting the right audience requires insights and precision. Advanced digital marketing techniques, including remarketing, audience segmentation, and paid media campaigns, ensure brands reach the right people at the right time.",
+    },
+    {
+        title: "Cost-Effectiveness",
+        description:
+            "Digital marketing often delivers higher ROI than print, radio, or TV ads, allowing Indian businesses—especially SMEs—to maximize limited marketing budgets.",
+    },
+    {
+        title: "Ability to Track and Measure Results",
+        description:
+            "Unlike offline campaigns, digital marketing provides real-time data on campaign performance. Businesses can track traffic, leads, conversions, and ROI, enabling better decision-making.",
+    },
+];
+---
+
+<section class="py-24 bg-neutral-50 text-neutral-900">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto mb-16 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                Key Reasons Businesses in India Need Digital Marketing Services
+            </h2>
+            <p class="text-lg text-neutral-600">
+                In today's digital age, relying solely on traditional marketing
+                isn't enough. Here's why:
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                reasons.map((reason, index) => (
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100">
+                        <div class="text-primary font-bold text-xl mb-4">
+                            0{index + 1}
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">{reason.title}</h3>
+                        <p class="text-neutral-600 leading-relaxed text-sm">
+                            {reason.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

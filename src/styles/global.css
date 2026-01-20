@@ -2,6 +2,7 @@
 
 @theme {
     --font-sans: 'Outfit', sans-serif;
+    --font-display: 'Syne', sans-serif;
 
     --color-primary: #fe8500;
     --color-primary-50: #fff8ed;
@@ -21,47 +22,17 @@
     .text-balance {
         text-wrap: balance;
     }
+}
 
-    .animate-fade-in-up {
-        animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    .delay-100 {
-        animation-delay: 0.1s;
-    }
-
-    .delay-200 {
-        animation-delay: 0.2s;
-    }
-
-    .delay-300 {
-        animation-delay: 0.3s;
-    }
-
-    .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
-    }
-
-    .reveal.in-view {
-        opacity: 1;
-        transform: translateY(0);
-    }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
 }
 
 html {
     scroll-padding-top: 80px;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }

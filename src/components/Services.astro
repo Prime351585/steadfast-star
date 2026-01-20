@@ -2,59 +2,213 @@
 const services = [
   {
     title: "Web Development",
-    description: "Custom, scalable, and high-performance websites tailored to your brand's needs.",
-    icon: "code"
+    description:
+      "Custom, scalable, and high-performance websites tailored to your brand's needs.",
+    icon: "code",
   },
   {
     title: "UI/UX Design",
-    description: "User-centric designs that are intuitive, engaging, and visually stunning.",
-    icon: "palette"
+    description:
+      "User-centric designs that are intuitive, engaging, and visually stunning.",
+    icon: "palette",
   },
   {
     title: "E-Commerce",
-    description: "Robust online stores that drive sales and provide seamless shopping experiences.",
-    icon: "shopping-bag"
+    description:
+      "Robust online stores that drive sales and provide seamless shopping experiences.",
+    icon: "shopping-bag",
   },
   {
     title: "SEO Optimization",
-    description: "Data-driven strategies to improve your visibility and rank higher on search engines.",
-    icon: "trending-up"
-  }
+    description:
+      "Data-driven strategies to improve your visibility and rank higher on search engines.",
+    icon: "trending-up",
+  },
 ];
 ---
 
 <section id="services" class="py-24 bg-white relative overflow-hidden">
   <div class="container mx-auto px-6">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">Our Services</h2>
-      <h3 class="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">We Craft Digital Experiences</h3>
-      <p class="text-neutral-600 text-lg">From concept to launch, we provide end-to-end solutions to help your business thrive in the digital landscape.</p>
+      <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">
+        Our Services
+      </h2>
+      <h3 class="text-3xl md:text-5xl font-bold text-neutral-900 mb-6">
+        Services That Take Your Business to the Next Level
+      </h3>
+      <p class="text-neutral-600 text-lg">
+        We offer result-driven solutions for businesses of all sizes and
+        industries.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {services.map((service, index) => (
-        <div class="group p-8 rounded-3xl bg-neutral-50 hover:bg-neutral-900 transition-all duration-500 hover:-translate-y-2 cursor-pointer border border-neutral-100 hover:border-neutral-800">
-          <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
-            <!-- Simple SVG Icons based on name -->
-            {service.icon === 'code' && (
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-            )}
-            {service.icon === 'palette' && (
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
-            )}
-            {service.icon === 'shopping-bag' && (
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-            )}
-            {service.icon === 'trending-up' && (
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-            )}
-          </div>
-          <h4 class="text-xl font-bold text-neutral-900 group-hover:text-white mb-3 transition-colors duration-300">{service.title}</h4>
-          <p class="text-neutral-600 group-hover:text-neutral-400 transition-colors duration-300 leading-relaxed">
-            {service.description}
-          </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Service 1 */}
+      <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-100">
+        <div
+          class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg
+          >
         </div>
-      ))}
+        <h4 class="text-xl font-bold text-neutral-900 mb-3">Web Development</h4>
+        <p class="text-neutral-600 leading-relaxed text-sm">
+          We offer custom web development services for businesses of all sizes
+          and industries in India. We develop secure and scalable websites that
+          deliver high performance, strong usability, and seamless experiences
+          across web and mobile platforms.
+        </p>
+      </div>
+
+      {/* Service 2 */}
+      <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-100">
+        <div
+          class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg
+          >
+        </div>
+        <h4 class="text-xl font-bold text-neutral-900 mb-3">
+          Digital Marketing
+        </h4>
+        <p class="text-neutral-600 leading-relaxed text-sm">
+          We offer data-driven digital marketing services for businesses of all
+          sizes and industries. We develop integrated marketing strategies that
+          increase visibility, generate quality leads, and drive measurable
+          growth across digital channels.
+        </p>
+      </div>
+
+      {/* Service 3 */}
+      <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-100">
+        <div
+          class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            ></path><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+          >
+        </div>
+        <h4 class="text-xl font-bold text-neutral-900 mb-3">Local SEO</h4>
+        <p class="text-neutral-600 leading-relaxed text-sm">
+          We offer result-focused local SEO services for businesses of all sizes
+          and industries. We develop location-based optimization strategies that
+          improve local rankings, increase visibility, and attract high-intent
+          nearby customers.
+        </p>
+      </div>
+
+      {/* Service 4 */}
+      <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-100">
+        <div
+          class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+            ></path></svg
+          >
+        </div>
+        <h4 class="text-xl font-bold text-neutral-900 mb-3">Branding</h4>
+        <p class="text-neutral-600 leading-relaxed text-sm">
+          We offer strategic branding services for businesses of all sizes and
+          industries. We develop consistent brand identities that strengthen
+          recognition, build trust, and communicate clear value across digital
+          and offline touchpoints.
+        </p>
+      </div>
+
+      {/* Service 5 */}
+      <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-100">
+        <div
+          class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg
+          >
+        </div>
+        <h4 class="text-xl font-bold text-neutral-900 mb-3">Ecommerce</h4>
+        <p class="text-neutral-600 leading-relaxed text-sm">
+          We offer custom e-commerce development services for businesses of all
+          sizes and industries. We develop scalable online stores that enhance
+          user experience, improve performance, and drive conversions across web
+          and mobile platforms.
+        </p>
+      </div>
+
+      {/* Service 6 */}
+      <div class="p-8 rounded-3xl bg-neutral-50 border border-neutral-100">
+        <div
+          class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
+            ></path></svg
+          >
+        </div>
+        <h4 class="text-xl font-bold text-neutral-900 mb-3">
+          Social Media Marketing
+        </h4>
+        <p class="text-neutral-600 leading-relaxed text-sm">
+          We offer professional social media marketing services for businesses
+          of all sizes and industries. We develop platform-specific social
+          strategies that increase engagement, build brand awareness, and
+          generate consistent leads.
+        </p>
+      </div>
     </div>
   </div>
 </section>

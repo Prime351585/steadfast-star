@@ -2,32 +2,39 @@
 const steps = [
     {
         number: "01",
-        title: "Discovery",
+        title: "Understanding Your Business Goals",
         description:
-            "We dive deep into your business goals and target audience.",
+            "Before we start designing, we learn about your small business, its services, and what makes it unique. That insight helps us create a website that truly reflects your purpose and vision.",
     },
     {
         number: "02",
-        title: "Strategy",
+        title: "Planning the Perfect Layout",
         description:
-            "We craft a tailored roadmap to achieve your digital objectives.",
+            "A great website starts with structure. We build layouts that make your story clear and lead people to take the next step, whether that's calling, booking, or buying.",
     },
     {
         number: "03",
-        title: "Design",
-        description: "We create visually stunning and intuitive interfaces.",
+        title: "Crafting Messaging That Connects",
+        description:
+            "We shape your content around what your customers care about most. Every word is chosen to highlight your strengths, build trust, and show why your business is the right choice.",
     },
     {
         number: "04",
-        title: "Development",
+        title: "Designing Visuals That Represent You",
         description:
-            "We build robust, scalable, and high-performance solutions.",
+            "Your brand deserves a look that feels professional and personal at the same time. We use visuals, colours, and fonts that make your website warm, memorable, and aligned with your identity.",
     },
     {
         number: "05",
-        title: "Launch",
+        title: "Creating Calls-to-Action That Convert",
         description:
-            "We deploy your project and ensure a smooth go-live experience.",
+            "From 'Book Now' to 'Get a Free Quote,' every button is placed with purpose. We make it easy for people who visit your site to find their way around, so that interest turns into action and leads.",
+    },
+    {
+        number: "06",
+        title: "Building Fast, Secure, and SEO-Friendly Websites",
+        description:
+            "Your website will look great on every screen and load fast every time. With expert optimisation and smart structure, our small business website design approach helps you rank better and convert more.",
     },
 ];
 ---
@@ -82,12 +89,12 @@ const steps = [
                 >
                     {
                         steps.map((step) => (
-                            <div class="min-w-[85vw] md:min-w-0 snap-center flex flex-col md:flex-row gap-6 p-8 rounded-3xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all duration-300 group backdrop-blur-sm">
-                                <span class="text-6xl md:text-5xl font-bold text-white/10 group-hover:text-primary/50 transition-colors duration-300">
+                            <div class="min-w-[85vw] md:min-w-0 snap-center flex flex-col md:flex-row gap-6 p-8 rounded-3xl bg-white/5 border border-white/5 backdrop-blur-sm">
+                                <span class="text-6xl md:text-5xl font-bold text-white/10">
                                     {step.number}
                                 </span>
                                 <div>
-                                    <h4 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                                    <h4 class="text-2xl font-bold mb-3">
                                         {step.title}
                                     </h4>
                                     <p class="text-neutral-400 leading-relaxed">

@@ -1,0 +1,281 @@
+---
+
+---
+
+<div
+    id="whatsapp-widget"
+    class="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none"
+>
+    <!-- Chat Window -->
+    <div
+        id="chat-window"
+        class="mb-4 w-[350px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-neutral-200 overflow-hidden pointer-events-auto hidden"
+    >
+        <!-- Header -->
+        <div
+            class="bg-[#25D366] p-4 text-white flex justify-between items-center"
+        >
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center"
+                >
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.17 3.03 14.68 2 12.04 2zM12.05 19.46c-1.38 0-2.73-.37-3.91-1.07l-.28-.16-2.91.76.77-2.84-.18-.29c-.75-1.18-1.15-2.55-1.15-3.95 0-4.13 3.36-7.49 7.49-7.49 2 0 3.88.78 5.29 2.19 1.41 1.41 2.19 3.29 2.19 5.29 0 4.13-3.36 7.49-7.49 7.49z"
+                        ></path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg leading-tight">
+                        Start a Project
+                    </h3>
+                    <p class="text-xs text-white/90">
+                        Typically replies mostly instantly
+                    </p>
+                </div>
+            </div>
+            <button id="close-chat" class="text-white/80 hover:text-white">
+                <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Content Area -->
+        <div
+            class="p-4 bg-neutral-50 h-[320px] overflow-y-auto"
+            id="chat-content"
+        >
+            <!-- Step 1: Project Type -->
+            <div class="chat-step" data-step="1">
+                <div
+                    class="bg-white p-3 rounded-tr-xl rounded-bl-xl rounded-br-xl shadow-sm mb-4 inline-block text-sm text-neutral-700"
+                >
+                    Hi there! 👋 What kind of project are you looking to start?
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Website Development">Website Dev</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="App Development">App Dev</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Digital Marketing">Digital Marketing</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="SEO Service">SEO</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Branding">Branding</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Other">Other</button
+                    >
+                </div>
+            </div>
+
+            <!-- Step 2: Budget (Hidden initially) -->
+            <div class="chat-step hidden" data-step="2">
+                <div class="text-right mb-4">
+                    <span
+                        class="user-response bg-[#DCF8C6] p-3 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-sm text-sm text-neutral-800 inline-block"
+                    ></span>
+                </div>
+                <div
+                    class="bg-white p-3 rounded-tr-xl rounded-bl-xl rounded-br-xl shadow-sm mb-4 inline-block text-sm text-neutral-700"
+                >
+                    Got it. What's your estimated budget for this?
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Under ₹50k">Under ₹50k</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="₹50k - ₹1L">₹50k - ₹1L</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="₹1L - ₹5L">₹1L - ₹5L</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="₹1L - ₹5L">₹1L - ₹5L</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="₹5L+">₹5L+</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Not Sure">Not Sure</button
+                    >
+                </div>
+            </div>
+
+            <!-- Step 3: Industry (Hidden initially) -->
+            <div class="chat-step hidden" data-step="3">
+                <div class="text-right mb-4">
+                    <span
+                        class="user-response bg-[#DCF8C6] p-3 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-sm text-sm text-neutral-800 inline-block"
+                    ></span>
+                </div>
+                <div
+                    class="bg-white p-3 rounded-tr-xl rounded-bl-xl rounded-br-xl shadow-sm mb-4 inline-block text-sm text-neutral-700"
+                >
+                    Which industry does your business belong to?
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Real Estate">Real Estate</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Healthcare">Healthcare</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="E-Commerce">E-Commerce</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Education">Education</button
+                    >
+                    <button
+                        class="option-btn bg-white border border-neutral-200 text-neutral-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-neutral-100"
+                        data-value="Other">Other</button
+                    >
+                </div>
+            </div>
+
+            <!-- Step 4: Final (Hidden initially) -->
+            <div class="chat-step hidden" data-step="4">
+                <div class="text-right mb-4">
+                    <span
+                        class="user-response bg-[#DCF8C6] p-3 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-sm text-sm text-neutral-800 inline-block"
+                    ></span>
+                </div>
+                <div
+                    class="bg-white p-3 rounded-tr-xl rounded-bl-xl rounded-br-xl shadow-sm mb-4 inline-block text-sm text-neutral-700"
+                >
+                    Perfect! Click below to send these details to our team on
+                    WhatsApp. We'll analyze them and get back to you!
+                </div>
+                <button
+                    id="send-whatsapp"
+                    class="w-full bg-[#25D366] text-white font-bold py-3 rounded-xl hover:bg-[#128C7E] flex items-center justify-center gap-2"
+                >
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"
+                        ><path
+                            d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.17 3.03 14.68 2 12.04 2z"
+                        ></path></svg
+                    >
+                    Start Chat on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button
+        id="whatsapp-toggle"
+        class="group pointer-events-auto relative flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:bg-[#128C7E]"
+    >
+        <!-- Icon -->
+        <svg
+            class="w-8 h-8 text-white relative z-10 fill-current"
+            viewBox="0 0 24 24"
+        >
+            <path
+                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.17 3.03 14.68 2 12.04 2zM12.05 19.46c-1.38 0-2.73-.37-3.91-1.07l-.28-.16-2.91.76.77-2.84-.18-.29c-.75-1.18-1.15-2.55-1.15-3.95 0-4.13 3.36-7.49 7.49-7.49 2 0 3.88.78 5.29 2.19 1.41 1.41 2.19 3.29 2.19 5.29 0 4.13-3.36 7.49-7.49 7.49z"
+            ></path>
+        </svg>
+    </button>
+</div>
+
+<script>
+    const widget = document.getElementById("whatsapp-widget");
+    const toggle = document.getElementById("whatsapp-toggle");
+    const chatWindow = document.getElementById("chat-window");
+    const closeBtn = document.getElementById("close-chat");
+    const contentArea = document.getElementById("chat-content");
+    const sendBtn = document.getElementById("send-whatsapp");
+
+    let state = {
+        projectType: "",
+        budget: "",
+        industry: "",
+    };
+
+    // Toggle Chat
+    const toggleChat = () => {
+        chatWindow.classList.toggle("hidden");
+    };
+
+    toggle.addEventListener("click", toggleChat);
+    closeBtn.addEventListener("click", toggleChat);
+
+    // Option Logic
+    document.querySelectorAll(".option-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            const stepDiv = e.target.closest(".chat-step");
+            const step = parseInt(stepDiv.dataset.step);
+            const value = e.target.dataset.value;
+
+            // Save Value
+            if (step === 1) state.projectType = value;
+            if (step === 2) state.budget = value;
+            if (step === 3) state.industry = value;
+
+            // Show user response
+            const nextStep = document.querySelector(
+                `.chat-step[data-step="${step + 1}"]`,
+            );
+            if (nextStep) {
+                const responseBubble = nextStep.querySelector(".user-response");
+                if (responseBubble) responseBubble.textContent = value;
+
+                stepDiv
+                    .querySelectorAll(".option-btn")
+                    .forEach((b: Element) => b.classList.add("hidden")); // Hide buttons
+                const selectedDisplay = document.createElement("div");
+                selectedDisplay.className = "text-right mb-4";
+                selectedDisplay.innerHTML = `<span class="bg-[#DCF8C6] p-3 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-sm text-sm text-neutral-800 inline-block">${value}</span>`;
+                stepDiv.appendChild(selectedDisplay); // Append "answer" bubble to current step
+
+                nextStep.classList.remove("hidden");
+
+                // Scroll to bottom
+                setTimeout(() => {
+                    contentArea.scrollTop = contentArea.scrollHeight;
+                }, 50);
+            }
+        });
+    });
+
+    // Send to WhatsApp
+    sendBtn?.addEventListener("click", () => {
+        const phone = "919999999999"; // Replace with actual number
+        const text = `Hi! I'm interested in starting a project.\n\n*Type:* ${state.projectType}\n*Budget:* ${state.budget}\n*Industry:* ${state.industry}\n\nCan we discuss looking forward to it?`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+        window.open(url, "_blank");
+    });
+</script>

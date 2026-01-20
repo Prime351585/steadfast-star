@@ -1,0 +1,53 @@
+---
+const faqs = [
+    {
+        question:
+            "What do Craft Presence's digital marketing services include?",
+        answer: "Our digital marketing services in India include SEO, PPC, social media marketing, content marketing, website design and development, web development, conversion rate optimization (CRO), and online reputation management.",
+    },
+    {
+        question:
+            "How do we measure the success of a digital marketing campaign?",
+        answer: "Success is evaluated using key performance indicators (KPIs) such as website traffic, lead quality, conversion rates, keyword rankings, backlinks, engagement metrics, and ROI.",
+    },
+    {
+        question: "What is the cost of digital marketing services in India?",
+        answer: "Costs depend on the digital marketing services required, business size, competition, and campaign goals. We offer customized and scalable digital marketing packages that provide maximum ROI for startups, SMEs, and enterprise businesses.",
+    },
+    {
+        question:
+            "Are digital marketing services suitable for small businesses and startups?",
+        answer: "Yes, scalable digital marketing solutions in India are designed for startups, SMEs, and enterprises.",
+    },
+    {
+        question: "Is digital marketing safe for a business website?",
+        answer: "We follow industry best digital marketing practices and Google guidelines to ensure sustainable growth without penalties. When implemented with ethical, white-hat techniques, digital marketing is completely safe.",
+    },
+];
+---
+
+<section class="py-24 bg-white text-neutral-900">
+    <div class="container mx-auto px-6 max-w-4xl">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                Frequently Asked Questions
+            </h2>
+            <p class="text-neutral-600">Got questions? We've got answers.</p>
+        </div>
+
+        <div class="space-y-6">
+            {
+                faqs.map((faq) => (
+                    <div class="border border-neutral-200 rounded-2xl p-6">
+                        <h3 class="text-xl font-bold mb-3 text-neutral-900">
+                            {faq.question}
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed">
+                            {faq.answer}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
