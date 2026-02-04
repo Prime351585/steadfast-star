@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import ApproachImage from "../assets/canva_assets/C2.png";
 const steps = [
     {
         number: "01",
@@ -73,14 +75,21 @@ const steps = [
                     on time, within budget, and exceeds expectations. We believe
                     in transparency and collaboration at every step.
                 </p>
+                <Image
+                    src={ApproachImage}
+                    width={400}
+                    height={400}
+                    alt={"How Craft Presence approach problems"}
+                    class="w-full h-full mt-40 hidden md:block"
+                />
 
                 <!-- Mobile Scroll Indicator -->
-                <!-- <div class="flex md:hidden justify-center gap-2">
+                <div class="flex md:hidden justify-center gap-2">
                     <div class="w-2 h-2 rounded-full bg-primary animate-pulse">
                     </div>
                     <div class="w-2 h-2 rounded-full bg-white/20"></div>
                     <div class="w-2 h-2 rounded-full bg-white/20"></div>
-                </div> -->
+                </div>
             </div>
 
             <div class="w-full md:w-2/3 mt-22">

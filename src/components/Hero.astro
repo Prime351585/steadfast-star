@@ -1,5 +1,5 @@
 ---
-
+import { Image } from "astro:assets";
 ---
 
 <section
@@ -74,21 +74,33 @@
                 >
                     <div class="flex items-center gap-2">
                         <div class="flex -space-x-2">
-                            <div
-                                class="w-8 h-8 rounded-full bg-neutral-700 border-2 border-black"
-                            >
-                            </div>
-                            <div
-                                class="w-8 h-8 rounded-full bg-neutral-600 border-2 border-black"
-                            >
-                            </div>
-                            <div
-                                class="w-8 h-8 rounded-full bg-neutral-500 border-2 border-black"
-                            >
-                            </div>
+                            <Image
+                                src={"https://fastly.picsum.photos/id/324/200/200.jpg?hmac=qhw4ORwk8T1r-Rxd2QREZORSVvc6l_R1S6F3Pl9mR_c"}
+                                width={20}
+                                height={20}
+                                alt={"User1"}
+                                format="avif"
+                                class="w-8 h-8 rounded-full"
+                            />
+                            <Image
+                                src={"https://fastly.picsum.photos/id/868/200/200.jpg?hmac=TH6VPbfiRO1pMY4ZYWqECwlH8wSnlxN_KlCVOzTpbe8"}
+                                width={20}
+                                height={20}
+                                alt={"User1"}
+                                format="avif"
+                                class="w-8 h-8 rounded-full"
+                            />
+                            <Image
+                                src={"https://fastly.picsum.photos/id/474/200/200.jpg?hmac=X5gJb746aYb_1-VdQG2Cti4XcHC10gwaOfRGfs6fTNk"}
+                                width={20}
+                                height={20}
+                                alt={"User1"}
+                                format="avif"
+                                class="w-8 h-8 rounded-full"
+                            />
                         </div>
                         <div class="text-xs text-neutral-400">
-                            Trusted by <strong class="text-white">300+</strong> founders
+                            Trusted by <strong class="text-white">25+</strong> founders
                         </div>
                     </div>
                     <div class="h-4 w-px bg-white/10 hidden sm:block"></div>

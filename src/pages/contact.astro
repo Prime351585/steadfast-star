@@ -8,8 +8,8 @@ const contactInfo = [
     {
         icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
         title: "Email Us",
-        value: "hello@craftpresence.com",
-        link: "mailto:hello@craftpresence.com",
+        value: "info@craftpresence.com",
+        link: "mailto:info@craftpresence.com",
     },
     {
         icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
@@ -20,9 +20,9 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-    { name: "LinkedIn", url: "#" },
-    { name: "Twitter", url: "#" },
-    { name: "Instagram", url: "#" },
+    // { name: "LinkedIn", url: "#" },
+    // { name: "Twitter", url: "#" },
+    { name: "Instagram", url: "https://www.instagram.com/craftpresence/" },
     { name: "Facebook", url: "#" },
 ];
 ---
@@ -128,7 +128,7 @@ const socialLinks = [
                     <div
                         class="bg-neutral-50 p-8 rounded-3xl border border-neutral-100"
                     >
-                        <form class="space-y-6">
+                        <form id="contactForm" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label
@@ -140,6 +140,7 @@ const socialLinks = [
                                         type="text"
                                         id="name"
                                         name="name"
+                                        required
                                         class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                         placeholder="John Doe"
                                     />
@@ -154,6 +155,7 @@ const socialLinks = [
                                         type="email"
                                         id="email"
                                         name="email"
+                                        required
                                         class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                         placeholder="john@example.com"
                                     />
@@ -169,6 +171,7 @@ const socialLinks = [
                                     type="text"
                                     id="subject"
                                     name="subject"
+                                    required
                                     class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                     placeholder="How can we help?"
                                 />
@@ -183,6 +186,7 @@ const socialLinks = [
                                     id="message"
                                     name="message"
                                     rows="4"
+                                    required
                                     class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                     placeholder="Tell us about your project..."
                                 ></textarea>
@@ -201,3 +205,26 @@ const socialLinks = [
     </main>
     <Footer />
 </Layout>
+
+<script>
+    const contactForm = document.getElementById(
+        "contactForm",
+    ) as HTMLFormElement;
+
+    contactForm?.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const subject = formData.get("subject");
+        const message = formData.get("message");
+
+        const phoneNumber = "919990471974";
+        const whatsAppMessage = `*New Inquiry from Contact Form*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
+
+        const whatsAppUrl = `https://wa.me/${phoneNumber}?text=${whatsAppMessage}`;
+
+        window.open(whatsAppUrl, "_blank");
+    });
+</script>

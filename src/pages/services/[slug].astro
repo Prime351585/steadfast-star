@@ -22,11 +22,35 @@ const { Content } = await entry.render();
 const { data } = entry;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/*.{jpeg,jpg,png,gif}",
+    "/src/assets/**/*.{jpeg,jpg,png,gif}",
 );
 const heroImage =
     data.heroImage && images[data.heroImage.replace("../../", "/src/")]
         ? images[data.heroImage.replace("../../", "/src/")]
+        : null;
+const introImage =
+    data.introImage && images[data.introImage.replace("../../", "/src/")]
+        ? images[data.introImage.replace("../../", "/src/")]
+        : null;
+const whyNeededImage1 =
+    data.whyNeededImage1 &&
+    images[data.whyNeededImage1.replace("../../", "/src/")]
+        ? images[data.whyNeededImage1.replace("../../", "/src/")]
+        : null;
+const whyNeededImage2 =
+    data.whyNeededImage2 &&
+    images[data.whyNeededImage2.replace("../../", "/src/")]
+        ? images[data.whyNeededImage2.replace("../../", "/src/")]
+        : null;
+const whyNeededImage3 =
+    data.whyNeededImage3 &&
+    images[data.whyNeededImage3.replace("../../", "/src/")]
+        ? images[data.whyNeededImage3.replace("../../", "/src/")]
+        : null;
+const whyNeededImage4 =
+    data.whyNeededImage4 &&
+    images[data.whyNeededImage4.replace("../../", "/src/")]
+        ? images[data.whyNeededImage4.replace("../../", "/src/")]
         : null;
 ---
 
@@ -125,7 +149,16 @@ const heroImage =
                         <div
                             class="aspect-square bg-neutral-100 rounded-3xl overflow-hidden shadow-2xl relative"
                         >
-                            <div class="absolute inset-0 bg-primary/10"></div>
+                            {
+                                introImage && (
+                                    <Image
+                                        src={introImage() as any}
+                                        alt={data.h1}
+                                        class="w-full h-full object-cover"
+                                    />
+                                )
+                            }
+                            <!-- <div class="absolute inset-0 bg-primary/10"></div>
                             <div
                                 class="absolute inset-0 flex items-center justify-center"
                             >
@@ -138,7 +171,7 @@ const heroImage =
                                         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
                                     ></path>
                                 </svg>
-                            </div>
+                            </div> -->
                         </div>
                         <div
                             class="absolute -bottom-8 -right-8 bg-white p-8 rounded-2xl shadow-xl border border-neutral-100 hidden md:block"
@@ -323,20 +356,58 @@ const heroImage =
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-4 pt-12">
                             <div
-                                class="aspect-square bg-neutral-100 rounded-3xl"
+                                class="aspect-square bg-neutral-100 rounded-3xl overflow-hidden"
                             >
+                                {
+                                    whyNeededImage1 && (
+                                        <Image
+                                            src={whyNeededImage1() as any}
+                                            alt="Service illustration 1"
+                                            class="w-full h-full object-cover"
+                                        />
+                                    )
+                                }
                             </div>
-                            <div class="aspect-3/4 bg-neutral-200 rounded-3xl">
+                            <div
+                                class="aspect-3/4 bg-neutral-200 rounded-3xl overflow-hidden"
+                            >
+                                {
+                                    whyNeededImage2 && (
+                                        <Image
+                                            src={whyNeededImage2() as any}
+                                            alt="Service illustration 2"
+                                            class="w-full h-full object-cover"
+                                        />
+                                    )
+                                }
                             </div>
                         </div>
                         <div class="space-y-4">
                             <div
-                                class="aspect-3/4 bg-neutral-100/50 rounded-3xl ring-1 ring-neutral-200"
+                                class="aspect-3/4 bg-neutral-100/50 rounded-3xl ring-1 ring-neutral-200 overflow-hidden"
                             >
+                                {
+                                    whyNeededImage3 && (
+                                        <Image
+                                            src={whyNeededImage3() as any}
+                                            alt="Service illustration 3"
+                                            class="w-full h-full object-cover"
+                                        />
+                                    )
+                                }
                             </div>
                             <div
-                                class="aspect-square bg-neutral-100 rounded-3xl"
+                                class="aspect-square bg-neutral-100 rounded-3xl overflow-hidden"
                             >
+                                {
+                                    whyNeededImage4 && (
+                                        <Image
+                                            src={whyNeededImage4() as any}
+                                            alt="Service illustration 4"
+                                            class="w-full h-full object-cover"
+                                        />
+                                    )
+                                }
                             </div>
                         </div>
                     </div>
@@ -382,22 +453,42 @@ const heroImage =
                 </h3>
                 <div class="flex flex-wrap justify-center gap-12">
                     {
-                        data.industries.items.map((industry: string) => (
-                            <div class="flex flex-col items-center gap-4">
-                                <div class="w-20 h-20 rounded-2xl bg-neutral-100 flex items-center justify-center text-primary">
-                                    <svg
-                                        class="w-10 h-10"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                                    </svg>
+                        data.industries.items.map((industry: any) => {
+                            const industryLogo =
+                                industry.logo &&
+                                images[industry.logo.replace("../../", "/src/")]
+                                    ? images[
+                                          industry.logo.replace(
+                                              "../../",
+                                              "/src/",
+                                          )
+                                      ]
+                                    : null;
+                            return (
+                                <div class="flex flex-col items-center gap-4">
+                                    <div class="w-20 h-20 rounded-2xl bg-neutral-100 flex items-center justify-center overflow-hidden">
+                                        {industryLogo ? (
+                                            <Image
+                                                src={industryLogo() as any}
+                                                alt={industry.name}
+                                                class="w-full h-full object-contain p-3"
+                                            />
+                                        ) : (
+                                            <svg
+                                                class="w-10 h-10 text-primary"
+                                                fill="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                                            </svg>
+                                        )}
+                                    </div>
+                                    <span class="font-semibold text-neutral-700 whitespace-nowrap font-sans">
+                                        {industry.name}
+                                    </span>
                                 </div>
-                                <span class="font-semibold text-neutral-700 whitespace-nowrap font-sans">
-                                    {industry}
-                                </span>
-                            </div>
-                        ))
+                            );
+                        })
                     }
                 </div>
             </div>
@@ -492,13 +583,13 @@ const heroImage =
         </section>
 
         <!-- Content Section (Markdown body) -->
-        <section class="py-24 bg-neutral-50 border-y border-neutral-100">
+        <!-- <section class="py-24 bg-neutral-50 border-y border-neutral-100">
             <div
                 class="container mx-auto px-6 prose prose-lg prose-neutral max-w-4xl prose-headings:font-display font-sans"
             >
                 <Content />
             </div>
-        </section>
+        </section> -->
 
         <!-- FAQ -->
         <section class="py-24 bg-white scroll-mt-20">

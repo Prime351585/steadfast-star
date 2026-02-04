@@ -14,6 +14,7 @@ const services = defineCollection({
         })),
         intro: z.string(),
         about: z.string(),
+        introImage: z.string().optional(),
         whyChooseUs: z.object({
             title: z.string(),
             subtitle: z.string(),
@@ -39,13 +40,20 @@ const services = defineCollection({
                 description: z.string()
             }))
         }),
+        whyNeededImage1: z.string().optional(),
+        whyNeededImage2: z.string().optional(),
+        whyNeededImage3: z.string().optional(),
+        whyNeededImage4: z.string().optional(),
         tools: z.object({
             title: z.string(),
             items: z.array(z.string())
         }),
         industries: z.object({
             title: z.string(),
-            items: z.array(z.string())
+            items: z.array(z.object({
+                name: z.string(),
+                logo: z.string()
+            }))
         }),
         process: z.object({
             title: z.string(),

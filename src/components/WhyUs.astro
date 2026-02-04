@@ -1,21 +1,41 @@
 ---
-
+import { Image } from "astro:assets";
+import whyUsImage from "../assets/canva_assets/1.png";
 ---
 
 <section class="py-24 bg-neutral-900 text-white overflow-hidden">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">
-                Why Choose Craft Presence as Your Digital Marketing Partner in
-                India?
-            </h2>
-            <h3 class="text-xl text-primary font-medium tracking-wide">
-                Proven Expertise. Measurable Results. Trusted by Businesses
-                Across India.
-            </h3>
+            <div
+                class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center text-centre md:text-left"
+            >
+                <div class="md:col-span-4">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                        Why Choose Craft Presence as Your Digital Marketing
+                        Partner in India?
+                    </h2>
+                    <h3 class="text-xl text-primary font-medium tracking-wide">
+                        Proven Expertise. Measurable Results. Trusted by
+                        Businesses Across India.
+                    </h3>
+                </div>
+                <Image
+                    src={whyUsImage}
+                    alt="Why Choose Us Image"
+                    width={300}
+                    height={300}
+                    format="webp"
+                    class="hidden md:block w-full h-auto col-span-1"
+                />
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+            class="grid
+                grid-cols-1
+                md:grid-cols-2
+                lg:grid-cols-4
+                gap-6"
+        >
             <!-- Item 1 -->
             <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
                 <h4 class="text-xl font-bold mb-3 text-primary">
