@@ -1,0 +1,204 @@
+---
+import { Image } from "astro:assets";
+import vanchuLogo from "../assets/clients/vanchu.webp"
+import gigglesLogo from "../assets/clients/giggles.jpg"
+import dwizzyLogo from "../assets/clients/dwizzy.avif"
+import blisstoda from "../assets/clients/bliss.png"
+import MGE from "../assets/clients/MGE.webp"
+import JaipurTuff from "../assets/clients/jaipurtuff.png"
+import TBF from "../assets/clients/tbf.jpg"
+import TTA from "../assets/clients/tileart.avif"
+// You can add your client data here
+const clients = [
+  {
+    name: "Vanchu Hut",
+    logo: vanchuLogo,
+    url: "https://vanchuhut.in",
+  },
+  {
+    name: "Giggles Gifts",
+    logo: gigglesLogo,
+    url: "https://gigglesgifts.in",
+  },
+  {
+    name: "Dwizzy Infra",
+    logo: dwizzyLogo,
+    url: "https://dwizzyinfra.com/",
+  },
+  {
+    name: "Bliss Toda International School",
+    logo: blisstoda,
+    url: "https://www.blisstoda.com/",
+  },
+  {
+    name: "Mammoth Grips Exchange",
+    logo: MGE,
+    url: "https://www.mammothgripexchange.com/",
+  },
+  {
+    name: "Jaipur Tuff",
+    logo: JaipurTuff,
+    url: "https://jaipurtuff.in/",
+  },
+  {
+    name: "The Tile Art",
+    logo: TTA,
+    url: "https://mediumturquoise-rail-447857.hostingersite.com/",
+  },
+  {
+    name: "The Balaji Farmers",
+    logo: TBF,
+    url: "https://thebalajifarmers.com/",
+  },
+];
+---
+
+<!-- Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<section id="clients" class="py-24 bg-neutral-50 relative overflow-hidden">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">
+        Trusted By
+      </h2>
+      <h3 class="text-3xl md:text-5xl font-bold text-neutral-900 mb-6">
+        Our Valued Clients
+      </h3>
+      <p class="text-neutral-600 text-lg">
+        Proud to partner with leading brands and businesses across industries
+      </p>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper clientsSwiper">
+      <div class="swiper-wrapper items-center">
+        {
+          clients.map((client) => (
+            <div class="swiper-slide">
+              <a
+                href={client.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block p-8 bg-white rounded-2xl border border-neutral-200 hover:border-primary hover:shadow-lg transition-all duration-300 group h-full flex items-center justify-center"
+              >
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  width={200}
+                  height={200}
+                  class="w-full h-auto max-h-24 object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100"
+                />
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+></script>
+
+<script is:inline>
+  // Initialize Swiper
+  const swiper = new Swiper(".clientsSwiper", {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 5,
+        spaceBetween: 40,
+      },
+    },
+  });
+</script>
+
+<style>
+  .swiper {
+    width: 100%;
+    padding: 40px 0 60px 0;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  /* Custom navigation button styles */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--color-primary);
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  /* Custom pagination styles */
+  .swiper-pagination {
+    bottom: 0 !important;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 12px;
+    height: 12px;
+    background: #d1d5db;
+    opacity: 1;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background: var(--color-primary);
+    width: 30px;
+    border-radius: 6px;
+  }
+</style>
