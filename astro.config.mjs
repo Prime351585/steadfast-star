@@ -14,6 +14,7 @@ export default defineConfig({
   server:{
     host:true
   },
+  site:'https://craftpresence.com',
   // adapter: cloudflare()
   vite: {
     plugins: [tailwindcss()]
