@@ -36,3 +36,9 @@ h6 {
 html {
     scroll-padding-top: 80px;
 }
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 90%; /* Reduces all rem-based sizes (text, padding, margins) by 10% on desktop */
+    }
+}

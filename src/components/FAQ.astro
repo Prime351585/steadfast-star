@@ -35,17 +35,20 @@ const faqs = [
             <p class="text-neutral-600">Got questions? We've got answers.</p>
         </div>
 
-        <div class="space-y-6">
+        <div class="space-y-4">
             {
                 faqs.map((faq) => (
-                    <div class="border border-neutral-200 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold mb-3 text-neutral-900">
-                            {faq.question}
-                        </h3>
-                        <p class="text-neutral-600 leading-relaxed">
-                            {faq.answer}
-                        </p>
-                    </div>
+                    <details class="group border border-neutral-200 rounded-2xl bg-white [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between font-bold cursor-pointer p-6 text-xl text-neutral-900 outline-none">
+                            <span>{faq.question}</span>
+                            <span class="transition duration-300 group-open:-rotate-180 shrink-0 ml-4 text-primary">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <div class="text-neutral-600 leading-relaxed px-6 pb-6 -mt-2">
+                            <p>{faq.answer}</p>
+                        </div>
+                    </details>
                 ))
             }
         </div>
