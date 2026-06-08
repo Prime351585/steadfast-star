@@ -22,6 +22,15 @@
     .text-balance {
         text-wrap: balance;
     }
+
+    /* Consistent content width for section copy
+       Use this class on section wrappers or paragraph containers
+       to ensure a consistent measure across the site. */
+    .content-width {
+        max-width: 64rem; /* 1024px */
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 h1,

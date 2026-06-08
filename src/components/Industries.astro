@@ -22,11 +22,18 @@ const industries = [
     "Startups",
     "Cleaning Company"
 ];
+
+// chunk into slides for mobile: 3 rows x 2 columns = 6 items per slide
+const slideSize = 6;
+const slides = [];
+for (let i = 0; i < industries.length; i += slideSize) {
+    slides.push(industries.slice(i, i + slideSize));
+}
 ---
 
 <section class="py-24 text-white bg-neutral-950">
     <div class="container mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center content-width mx-auto mb-16">
             <h3 class="text-3xl md:text-5xl font-bold mb-6">
                 Which industries does Craft Presence serve in India?
             </h3>
@@ -35,7 +42,8 @@ const industries = [
             </p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-4">
+        <!-- Desktop / large: original wrap view -->
+        <div class="hidden lg:flex flex-wrap justify-center gap-4">
             {
                 industries.map((industry) => (
                     <div class="px-8 py-4 bg-neutral-50 rounded-full border border-neutral-100 font-medium text-neutral-700 cursor-default">
@@ -44,5 +52,95 @@ const industries = [
                 ))
             }
         </div>
+
+        <!-- Mobile: slider with slides of 6 items (3 rows x 2 cols) -->
+        <div class="lg:hidden mt-4">
+            <div class="relative">
+                <div id="industriesTrack" class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth gap-4 px-2">
+                    {
+                        slides.map((slide) => (
+                            <div class="snap-start min-w-full flex-shrink-0">
+                                <div class="grid grid-cols-2 gap-3">
+                                    {
+                                        slide.map((item) => (
+                                            <div class="px-4 py-3 bg-neutral-50 rounded-full border border-neutral-100 font-medium text-neutral-700 text-sm text-center">
+                                                {item}
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- Controls removed for mobile (swipe + dots available) -->
+
+                <!-- Dots -->
+                <div id="industriesDots" class="flex items-center justify-center gap-2 mt-3">
+                    {
+                        slides.map((_s, idx) => (
+                            <button aria-label={`Go to slide ${idx+1}`} data-idx={idx} class="w-2 h-2 rounded-full bg-white/40"></button>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<script>
+    // Mobile slider controls
+    (function(){
+        const track = document.getElementById('industriesTrack');
+        const dots = Array.from(document.querySelectorAll('#industriesDots button'));
+        if (!track) return;
+
+        const slidesEls = Array.from(track.querySelectorAll('.snap-start'));
+
+        function updateDots(){
+            // find slide whose offsetLeft is closest to current scrollLeft
+            const scrollLeft = track.scrollLeft;
+            let minDiff = Infinity;
+            let active = 0;
+            slidesEls.forEach((el, i) => {
+                const diff = Math.abs(el.offsetLeft - scrollLeft);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    active = i;
+                }
+            });
+            dots.forEach((d,i)=> {
+                if (i === active) {
+                    d.classList.add('bg-primary');
+                    d.classList.remove('bg-white/40');
+                    d.classList.add('scale-125');
+                    d.setAttribute('aria-current','true');
+                } else {
+                    d.classList.remove('bg-primary');
+                    d.classList.add('bg-white/40');
+                    d.classList.remove('scale-125');
+                    d.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        track.addEventListener('scroll', ()=> window.requestAnimationFrame(updateDots));
+
+        dots.forEach((d,i)=> d.addEventListener('click', ()=> {
+            const target = slidesEls[i];
+            if (target) track.scrollTo({left: target.offsetLeft, behavior:'smooth'});
+        }));
+
+        // init
+        updateDots();
+    })();
+</script>
+
+<style>
+    /* hide scrollbar for modern browsers */
+    #industriesTrack::-webkit-scrollbar{ display:none }
+    #industriesTrack{ -ms-overflow-style:none; scrollbar-width:none }
+    #industriesDots button{ transition: transform .18s ease, background-color .18s ease }
+</style>
+</style>

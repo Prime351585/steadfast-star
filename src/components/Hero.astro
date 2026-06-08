@@ -34,7 +34,7 @@ import { Image } from "astro:assets";
                 </h1>
 
                 <p
-                    class="text-xl text-neutral-400 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                    class="text-xl text-neutral-400 mb-10 leading-relaxed content-width mx-auto lg:mx-0"
                 >
                     Craft Presence helps businesses across India generate more leads, increase online visibility, lower acquisition costs, and drive predictable revenue growth with AI-powered digital marketing strategies.
                 </p>
@@ -42,8 +42,8 @@ import { Image } from "astro:assets";
                 <div
                     class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
                 >
-                    <a
-                        href="#lead-capture"
+                    <button
+                        id="openHeroModal"
                         class="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-neutral-200 flex items-center justify-center gap-2"
                     >
                         Get Your Free Digital Marketing Audit
@@ -58,7 +58,7 @@ import { Image } from "astro:assets";
                                 stroke-width="2"
                                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
                         >
-                    </a>
+                    </button>
                     <a
                         href="#services"
                         class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 flex items-center justify-center"
@@ -67,28 +67,28 @@ import { Image } from "astro:assets";
                     </a>
                 </div>
 
-                <div
-                    class="mt-12 pt-8 border-t border-white/10 flex flex-col xl:flex-row items-center gap-6 justify-center lg:justify-start xl:gap-8"
-                >
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 text-xs text-neutral-400">
-                        <span class="flex items-center gap-1"><strong class="text-white text-sm">25+</strong> Brands served across India</span>
-                        <span class="hidden sm:block text-white/30">&bull;</span>
-                        <span class="flex items-center gap-1"><strong class="text-white text-sm">9+</strong> Industries covered</span>
-                        <span class="hidden md:block text-white/30">&bull;</span>
-                        <span class="flex items-center gap-1"><strong class="text-white text-sm">3+</strong> Years of measurable results</span>
-                    </div>
-                    
-                    <div class="h-4 w-px bg-white/20 hidden xl:block"></div>
-                    
                     <div
-                        class="flex items-center justify-center gap-1.5 text-yellow-400 text-sm font-bold shrink-0"
+                        class="mt-12 pt-8 border-t border-white/10 flex flex-col lg:flex-row items-center gap-6 justify-center lg:justify-start lg:gap-8"
                     >
-                        <span>★★★★★</span>
-                        <span class="text-neutral-400 font-normal ml-1"
-                            >4.7 Rating on Trustpilot</span
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 text-xs text-neutral-400">
+                            <span class="flex items-center gap-1"><strong class="text-white text-sm">25+</strong> Brands served across India</span>
+                            <span class="hidden sm:block text-white/30">&bull;</span>
+                            <span class="flex items-center gap-1"><strong class="text-white text-sm">9+</strong> Industries covered</span>
+                            <span class="hidden md:block text-white/30">&bull;</span>
+                            <span class="flex items-center gap-1"><strong class="text-white text-sm">3+</strong> Years of measurable results</span>
+                        </div>
+                        
+                        <div class="h-4 w-px bg-white/20 hidden xl:block"></div>
+                        
+                        <div
+                            class="flex items-center justify-center gap-1.5 text-yellow-400 text-sm font-bold shrink-0"
                         >
+                            <span>★★★★★</span>
+                            <span class="text-neutral-400 font-normal ml-1"
+                                >4.7 Rating on Trustpilot</span
+                            >
+                        </div>
                     </div>
-                </div>
             </div>
 
             <!-- Right Content: The "Engine" Visual -->
@@ -195,6 +195,121 @@ import { Image } from "astro:assets";
         </div>
     </div>
 </section>
+
+<!-- Lead Capture Modal -->
+<div id="heroLeadModal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto overflow-x-hidden bg-black/80 p-4 sm:p-6 backdrop-blur-sm">
+    <div class="relative w-full max-w-2xl rounded-2xl bg-white p-6 shadow-2xl sm:p-10 my-auto" id="heroModalContent">
+        <button id="closeHeroModal" class="absolute right-4 top-4 rounded-full p-2 text-neutral-500 hover:bg-neutral-100 transition-colors">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        
+        <h2 class="mb-2 text-2xl sm:text-3xl font-bold text-neutral-900 pr-8">
+            Get Your Free Digital Marketing Audit
+        </h2>
+        <p class="mb-6 text-neutral-600">
+            Our experts will analyze your current digital presence and provide a customized growth plan.
+        </p>
+        
+        <form id="modalLeadForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="mb-1.5 block text-sm font-semibold text-neutral-700">First Name</label>
+                    <input type="text" id="modalFirstName" class="w-full rounded-xl border border-neutral-300 px-4 py-2.5 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 text-neutral-900" placeholder="John" required />
+                </div>
+                <div>
+                    <label class="mb-1.5 block text-sm font-semibold text-neutral-700">Last Name</label>
+                    <input type="text" id="modalLastName" class="w-full rounded-xl border border-neutral-300 px-4 py-2.5 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 text-neutral-900" placeholder="Doe" required />
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="mb-1.5 block text-sm font-semibold text-neutral-700">Email Address</label>
+                    <input type="email" id="modalEmail" class="w-full rounded-xl border border-neutral-300 px-4 py-2.5 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 text-neutral-900" placeholder="john@company.com" required />
+                </div>
+                <div>
+                    <label class="mb-1.5 block text-sm font-semibold text-neutral-700">Phone Number</label>
+                    <input type="tel" id="modalPhone" class="w-full rounded-xl border border-neutral-300 px-4 py-2.5 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 text-neutral-900" placeholder="+91 98765 43210" required />
+                </div>
+            </div>
+            
+            <div>
+                <label class="mb-1.5 block text-sm font-semibold text-neutral-700">Company Website</label>
+                <input type="url" id="modalWebsite" class="w-full rounded-xl border border-neutral-300 px-4 py-2.5 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 text-neutral-900" placeholder="https://www.yourwebsite.com" />
+            </div>
+            
+            <div>
+                <label class="mb-1.5 block text-sm font-semibold text-neutral-700">What is your biggest marketing challenge?</label>
+                <textarea id="modalChallenge" class="h-24 w-full resize-none rounded-xl border border-neutral-300 px-4 py-2.5 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 text-neutral-900" placeholder="Tell us about your goals..."></textarea>
+            </div>
+            
+            <button type="submit" class="w-full rounded-xl bg-primary py-3.5 text-center text-lg font-bold text-white shadow-lg transition-colors hover:bg-neutral-900 hover:shadow-xl mt-2">
+                Request Free Audit
+            </button>
+            <p class="text-center text-xs text-neutral-500 mt-2">We respect your privacy. No spam, ever.</p>
+        </form>
+    </div>
+</div>
+
+<script>
+    const openBtn = document.getElementById('openHeroModal');
+    const closeBtn = document.getElementById('closeHeroModal');
+    const modal = document.getElementById('heroLeadModal');
+    const modalForm = document.getElementById('modalLeadForm');
+
+    if (openBtn && closeBtn && modal) {
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // prevent scrolling
+        });
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    if (modalForm) {
+        modalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = (document.getElementById('modalFirstName') as HTMLInputElement)?.value || '';
+            const lastName = (document.getElementById('modalLastName') as HTMLInputElement)?.value || '';
+            const email = (document.getElementById('modalEmail') as HTMLInputElement)?.value || '';
+            const phone = (document.getElementById('modalPhone') as HTMLInputElement)?.value || '';
+            const website = (document.getElementById('modalWebsite') as HTMLInputElement)?.value || '';
+            const challenge = (document.getElementById('modalChallenge') as HTMLTextAreaElement)?.value || '';
+            
+            const message = `Hello! I'm requesting a Free Digital Marketing Audit.
+
+*Name:* ${firstName} ${lastName}
+*Email:* ${email}
+*Phone:* ${phone}
+*Website:* ${website || 'Not provided'}
+
+*Biggest Challenge:*
+${challenge || 'Not provided'}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/919211667489?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        });
+    }
+</script>
 
 <style>
     /* No animations */
