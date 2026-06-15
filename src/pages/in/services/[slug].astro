@@ -1,0 +1,24 @@
+---
+export const prerender = true;
+
+import { getCollection, type CollectionEntry } from "astro:content";
+import ServicePage from "../../../components/ServicePage.astro";
+import { mdxToServicePageData } from "../../../data/services/mdx-mapper";
+
+export async function getStaticPaths() {
+	const services = await getCollection("services");
+	return services.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+interface Props {
+	entry: CollectionEntry<"services">;
+}
+
+const { entry } = Astro.props;
+const data = mdxToServicePageData(entry);
+---
+
+<ServicePage data={data} />

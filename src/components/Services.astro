@@ -1,127 +1,41 @@
 ---
-const services = [
-  {
-    title: "Web Development",
-    description:
-      "Custom, scalable, and high-performance websites tailored to your brand's needs.",
-    icon: "code",
-  },
-  {
-    title: "UI/UX Design",
-    description:
-      "User-centric designs that are intuitive, engaging, and visually stunning.",
-    icon: "palette",
-  },
-  {
-    title: "E-Commerce",
-    description:
-      "Robust online stores that drive sales and provide seamless shopping experiences.",
-    icon: "shopping-bag",
-  },
-  {
-    title: "SEO Optimization",
-    description:
-      "Data-driven strategies to improve your visibility and rank higher on search engines.",
-    icon: "trending-up",
-  },
-];
+import type { HomepageContent } from "../data/homepage/types";
+
+interface Props {
+	content: HomepageContent["services"];
+}
+
+const { content } = Astro.props;
 ---
 
 <section id="services" class="py-24 bg-white relative overflow-hidden">
   <div class="container mx-auto px-6">
     <div class="text-center content-width mx-auto mb-16">
       <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">
-        Our Services
+        {content.eyebrow}
       </h2>
       <h3 class="text-3xl md:text-5xl font-bold text-neutral-900 mb-6">
-        What digital marketing services does Craft Presence offer in India?
+        {content.title}
       </h3>
       <p class="text-neutral-600 text-lg">
-        We offer a complete range of digital marketing services for businesses of all sizes across India, including SEO, PPC advertising, social media marketing, content marketing, web development, local SEO, branding, and e-commerce development. Each service is delivered as part of an integrated growth strategy, not as a standalone tactic, because sustainable digital growth requires coordinated execution across channels.
+        {content.intro}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {/* Service 1 */}
-      <a href="/services/seo-services" class="block p-8 rounded-3xl bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors">
-        <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </div>
-        <h4 class="text-xl font-bold text-neutral-900 mb-3">Search engine optimization (SEO)</h4>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          SEO is the process of improving a website's visibility in organic (non-paid) Google search results for keywords your target customers are actively searching. We deliver technical SEO audits, on-page optimization, content strategy, link building, and performance monitoring, resulting in compounding organic traffic growth that reduces dependence on paid advertising over time.
-        </p>
-      </a>
-
-      {/* Service 2 */}
-      <a href="/services/digital-marketing" class="block p-8 rounded-3xl bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors">
-        <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-        </div>
-        <h4 class="text-xl font-bold text-neutral-900 mb-3">
-          Pay-per-click advertising (PPC / Google Ads)
-        </h4>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          PPC advertising places your business at the top of Google search results for high-intent queries, generating leads and sales within days of campaign launch. We manage Google Ads, Meta Ads (Facebook and Instagram), and LinkedIn Ads campaigns, with full keyword research, ad copy testing, bid optimization, and ROAS tracking included.
-        </p>
-      </a>
-
-      {/* Service 3 */}
-      <a href="/services/social-media-marketing" class="block p-8 rounded-3xl bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors">
-        <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
-        </div>
-        <h4 class="text-xl font-bold text-neutral-900 mb-3">
-          Social media marketing
-        </h4>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          Social media marketing builds brand awareness, audience engagement, and lead generation across Instagram, Facebook, LinkedIn, and YouTube. Craft Presence develops platform-specific content strategies, manages community engagement, and runs paid social campaigns, coordinated to match each platform's algorithm and your target audience's behaviour.
-        </p>
-      </a>
-
-      {/* Service 4 */}
-      <a href="/services/local-seo" class="block p-8 rounded-3xl bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors">
-        <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-        </div>
-        <h4 class="text-xl font-bold text-neutral-900 mb-3">Local SEO</h4>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          Local SEO improves your business's visibility in Google Maps and "near me" searches for customers in your city or region. Craft Presence optimizes Google Business Profiles, builds local citations, manages review strategy, and creates location-specific landing pages, making your business the top result when nearby customers search for your service category.
-        </p>
-      </a>
-
-      {/* Service 5 */}
-      <a href="/services/web-development" class="block p-8 rounded-3xl bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors">
-        <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-        </div>
-        <h4 class="text-xl font-bold text-neutral-900 mb-3">Web development</h4>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          A high-performance, SEO-friendly website is the foundation of every digital marketing strategy. Craft Presence builds custom websites for businesses of all sizes, fast-loading, mobile-optimized, conversion-focused, and built on clean code that search engines can crawl and index efficiently.
-        </p>
-      </a>
-
-      {/* Service 6 */}
-      <a href="/services/branding" class="block p-8 rounded-3xl bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors">
-        <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
-        </div>
-        <h4 class="text-xl font-bold text-neutral-900 mb-3">Branding</h4>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          Branding defines how your business is perceived across every digital and offline touchpoint. Craft Presence develops brand identities, logos, colour systems, typography, tone of voice, that create consistent recognition, build trust, and communicate clear value to your target audience.
-        </p>
-      </a>
-
-      {/* Service 7 */}
-      <a href="/services/ecommerce-development" class="block p-8 rounded-3xl bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors">
-        <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-        </div>
-        <h4 class="text-xl font-bold text-neutral-900 mb-3">E-commerce development and marketing</h4>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          E-commerce businesses require a specialized combination of technical development, product SEO, and performance marketing. Craft Presence builds scalable online stores and develops e-commerce marketing strategies covering organic search, Google Shopping, Meta catalogue ads, and email/retention marketing, all optimized for revenue growth.
-        </p>
-      </a>
+      {
+        content.items.map((service) => (
+          <a href={service.href} class="block p-8 rounded-3xl bg-neutral-50 border border-neutral-100 hover:border-primary transition-colors">
+            <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <h4 class="text-xl font-bold text-neutral-900 mb-3">{service.title}</h4>
+            <p class="text-neutral-600 leading-relaxed text-sm">
+              {service.description}
+            </p>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

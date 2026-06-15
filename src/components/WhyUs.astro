@@ -1,6 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import whyUsImage from "../assets/canva_assets/1.png";
+import type { HomepageContent } from "../data/homepage/types";
+
+interface Props {
+	content: HomepageContent["whyUs"];
+}
+
+const { content } = Astro.props;
 ---
 
 <section class="py-24 bg-neutral-900 text-white overflow-hidden">
@@ -11,10 +18,10 @@ import whyUsImage from "../assets/canva_assets/1.png";
             >
                 <div class="md:col-span-4">
                     <h2 class="text-3xl md:text-5xl font-bold mb-4">
-                        What makes Craft Presence the right digital marketing company for your business in India?
+                        {content.title}
                     </h2>
                     <h3 class="text-xl text-primary font-medium tracking-wide">
-                        Craft Presence is not a vendor; it is a growth partner. The company was built on three principles: AI-driven strategy, transparent reporting, and industry-specific execution. Here is what separates Craft Presence from other digital marketing companies in India.
+                        {content.subtitle}
                     </h3>
                 </div>
                 <Image
@@ -34,65 +41,18 @@ import whyUsImage from "../assets/canva_assets/1.png";
                 lg:grid-cols-3
                 gap-6"
         >
-            <!-- Item 1 -->
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                <h4 class="text-xl font-bold mb-3 text-primary">
-                    AI-powered digital marketing strategies built for measurable growth
-                </h4>
-                <p class="text-neutral-400 text-sm">
-                    Craft Presence uses AI-assisted tools for keyword opportunity mapping, ad copy testing, audience modelling, and conversion rate optimization. This means campaigns are not built on assumptions; they are built on data patterns from your industry, your competitors, and your target customer behaviour. The result is faster implementation, lower wasted spend, and compounding improvements over time.
-                </p>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                <h4 class="text-xl font-bold mb-3 text-primary">
-                    3+ years of proven expertise across 20+ industries
-                </h4>
-                <p class="text-neutral-400 text-sm">
-                    The Craft Presence team has delivered measurable digital marketing results across e-commerce, healthcare, finance, real estate, hospitality, education, and manufacturing industries with distinctly different buyer journeys, compliance requirements, and conversion benchmarks. Industry-specific expertise means your strategy is never copied and pasted from a different sector's playbook.
-                </p>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                <h4 class="text-xl font-bold mb-3 text-primary">
-                    Expert-led execution, not junior handoffs
-                </h4>
-                <p class="text-neutral-400 text-sm">
-                    Every Craft Presence campaign is managed by senior digital marketing specialists with direct accountability for results. Account managers, SEO strategists, PPC experts, content writers, designers, and developers work as a coordinated team on your account, not siloed freelancers stitched together at project start.
-                </p>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                <h4 class="text-xl font-bold mb-3 text-primary">
-                    Transparent reporting with full performance visibility
-                </h4>
-                <p class="text-neutral-400 text-sm">
-                    Clients receive real-time access to campaign dashboards, weekly performance summaries, and monthly strategy review calls. Reports cover keyword rankings, organic traffic growth, ad spend efficiency, lead quality scores, and conversion funnel metrics. There are no hidden metrics, padded numbers, or "trust us" summaries.
-                </p>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                <h4 class="text-xl font-bold mb-3 text-primary">
-                    Trusted by 30+ brands across India
-                </h4>
-                <p class="text-neutral-400 text-sm">
-                    Craft Presence has delivered digital marketing results for businesses ranging from local retailers to national D2C brands. Clients include Bliss Toda International School, Mammoth Grips Exchange, Jaipur Tuff, The Tile Art, Dwizzy Infra, Vanchu Hut, and Giggles Gifts, across sectors including education, manufacturing, interior design, hospitality, and retail.
-                </p>
-            </div>
-
-             <!-- Item 6 -->
-             <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
-                <h4 class="text-xl font-bold mb-3 text-primary">
-                    Customized strategy for every business, no templates
-                </h4>
-                <p class="text-neutral-400 text-sm">
-                    No two businesses have the same audience, competitive landscape, or budget. Every Craft Presence engagement begins with a full digital audit covering your current SEO health, competitor positioning, paid media landscape, and conversion gaps. The strategy built from that audit is specific to your business, not recycled from a previous client.
-                </p>
-            </div>
+            {
+                content.items.map((item) => (
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+                        <h4 class="text-xl font-bold mb-3 text-primary">
+                            {item.title}
+                        </h4>
+                        <p class="text-neutral-400 text-sm">
+                            {item.description}
+                        </p>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>

@@ -1,5 +1,11 @@
 ---
+import type { HomepageContent } from "../data/homepage/types";
 
+interface Props {
+	aboutUs: HomepageContent["aboutUs"];
+}
+
+const { aboutUs } = Astro.props;
 ---
 
 <section id="introduction" class="py-24 bg-white text-neutral-900">
@@ -7,15 +13,16 @@
         <div class="content-width mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8">About Us</h2>
             <div class="space-y-6 text-left mx-auto">
-                <p class="text-lg md:text-xl text-neutral-700 leading-relaxed">
-                    Craft Presence is a results-driven digital marketing company in India, founded to help businesses of all sizes compete and win online. We combine AI-powered marketing automation, rigorous data analysis, and human expertise to build predictable revenue systems across digital channels.
-                </p>
-                <p class="text-lg md:text-xl text-neutral-700 leading-relaxed">
-                    Unlike generalist agencies, we operate as embedded growth partners, running integrated campaigns across SEO, Google Ads, Meta Ads, content marketing, social media, and performance marketing. Every strategy is built around one metric: measurable return on marketing investment.
-                </p>
-                <div class="mt-6">
-                    <p class="text-neutral-600"><span class="font-semibold text-neutral-900">Cities we serve across India:</span> Mumbai, Delhi, Bangalore, Hyderabad, Chennai, Pune, Ahmedabad, Jaipur, Kolkata + All India</p>
-                </div>
+                {aboutUs.paragraphs.map((paragraph) => (
+                    <p class="text-lg md:text-xl text-neutral-700 leading-relaxed">
+                        {paragraph}
+                    </p>
+                ))}
+                {aboutUs.citiesLine && (
+                    <div class="mt-6">
+                        <p class="text-neutral-600"><span class="font-semibold text-neutral-900">Cities we serve across India:</span> {aboutUs.citiesLine}</p>
+                    </div>
+                )}
             </div>
         </div>
     </div>

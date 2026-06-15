@@ -1,53 +1,27 @@
 ---
-const reasons = [
-    {
-        title: "Limited online visibility hurts revenue",
-        description:
-            "Most Indian consumers research products on Google before buying. Without strong SEO and paid media presence, businesses are invisible to 80%+ of high-intent buyers at the exact moment of purchase decision.",
-    },
-    {
-        title: "Rising competition across every industry",
-        description:
-            "From D2C brands to B2B SaaS companies, the Indian markets are crowded. Strategic performance marketing, combining Google Ads, Meta Ads, and ROAS optimization, is what separates growing brands from stagnant ones.",
-    },
-    {
-        title: "Low lead quality drains sales teams",
-        description:
-            "Traditional lead generation delivers high volume but low intent. Digital marketing strategies built around conversion funnel optimization, audience segmentation, and CAC reduction deliver leads that actually close.",
-    },
-    {
-        title: "Targeting the right audience at the right time",
-        description:
-            "Precision targeting through remarketing, lookalike audiences, and behavioural segmentation ensures your marketing budget reaches people with genuine purchase intent, not just random traffic.",
-    },
-    {
-        title: "Higher ROI than traditional advertising",
-        description:
-            "For Indian SMEs with limited budgets, digital marketing delivers 3–5x more measurable ROI than print, radio, or TV. Every rupee spent is tracked, optimized, and tied to a business outcome.",
-    },
-    {
-        title: "Real-time tracking and marketing automation",
-        description:
-            "Unlike offline campaigns, digital marketing provides live data on ROAS, LTV, bounce rate, and conversion rates. Paired with marketing automation tools, businesses can scale without proportionally scaling headcount.",
-    },
-];
+import type { HomepageContent } from "../data/homepage/types";
+
+interface Props {
+	content: HomepageContent["keyReasons"];
+}
+
+const { content } = Astro.props;
 ---
 
 <section class="py-24 bg-neutral-50 text-neutral-900">
     <div class="container mx-auto px-6">
         <div class="content-width mx-auto mb-16 text-center">
             <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                Why Do Businesses in India Need a Digital Marketing Company?
+                {content.title}
             </h2>
-            <p class="text-lg text-neutral-600">
-                In a market where 700 million Indians are online and competition for attention is intensifying daily, a specialized digital marketing company is no longer optional; it is the difference between growing and stagnating.<br /><br />
-                The six critical challenges a digital marketing company in India solves:
+            <p class="text-lg text-neutral-600 whitespace-pre-line">
+                {content.intro}
             </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {
-                reasons.map((reason, index) => (
+                content.reasons.map((reason, index) => (
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100">
                         <div class="text-primary font-bold text-xl mb-4">
                             0{index + 1}

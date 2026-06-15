@@ -1,5 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import type { HomepageContent } from "../data/homepage/types";
+
+interface Props {
+	content: HomepageContent["hero"];
+}
+
+const { content } = Astro.props;
 ---
 
 <section
@@ -23,20 +29,26 @@ import { Image } from "astro:assets";
                     class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-neutral-300 mb-8"
                 >
                     <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                    Accepting new ambitious partners for Q1
+                    {content.badge}
                 </div>
 
                 <h1
                     class="text-4xl lg:text-5xl font-bold font-sans tracking-tight mb-6 leading-[1.1]"
                 >
-                    We Are India's Performance-First<br />
-                    <span class="text-white/50">Digital Marketing Company</span>
+                    {content.titleAccent ? (
+                        <>
+                            {content.title}<br />
+                            <span class="text-white/50">{content.titleAccent}</span>
+                        </>
+                    ) : (
+                        content.title
+                    )}
                 </h1>
 
                 <p
                     class="text-xl text-neutral-400 mb-10 leading-relaxed content-width mx-auto lg:mx-0"
                 >
-                    Craft Presence helps businesses across India generate more leads, increase online visibility, lower acquisition costs, and drive predictable revenue growth with AI-powered digital marketing strategies.
+                    {content.subheadline}
                 </p>
 
                 <div
@@ -46,7 +58,7 @@ import { Image } from "astro:assets";
                         id="openHeroModal"
                         class="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-neutral-200 flex items-center justify-center gap-2"
                     >
-                        Get Your Free Digital Marketing Audit
+                        {content.primaryCta}
                         <svg
                             class="w-4 h-4"
                             fill="none"
@@ -60,10 +72,10 @@ import { Image } from "astro:assets";
                         >
                     </button>
                     <a
-                        href="#services"
+                        href="#portfolio"
                         class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 flex items-center justify-center"
                     >
-                        View Case Studies
+                        {content.secondaryCta}
                     </a>
                 </div>
 
@@ -71,23 +83,31 @@ import { Image } from "astro:assets";
                         class="mt-12 pt-8 border-t border-white/10 flex flex-col lg:flex-row items-center gap-6 justify-center lg:justify-start lg:gap-8"
                     >
                         <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 text-xs text-neutral-400">
-                            <span class="flex items-center gap-1"><strong class="text-white text-sm">25+</strong> Brands served across India</span>
-                            <span class="hidden sm:block text-white/30">&bull;</span>
-                            <span class="flex items-center gap-1"><strong class="text-white text-sm">9+</strong> Industries covered</span>
-                            <span class="hidden md:block text-white/30">&bull;</span>
-                            <span class="flex items-center gap-1"><strong class="text-white text-sm">3+</strong> Years of measurable results</span>
+                            {content.stats.map((stat, index) => (
+                                <span class="flex items-center gap-1">
+                                    {index > 0 && (
+                                        <span class={`text-white/30 mx-1 sm:mx-2 ${index === 1 ? "hidden sm:inline" : "hidden md:inline"}`}>&bull;</span>
+                                    )}
+                                    <strong class="text-white text-sm">{stat.value}</strong>
+                                    <span>{stat.label}</span>
+                                </span>
+                            ))}
                         </div>
                         
-                        <div class="h-4 w-px bg-white/20 hidden xl:block"></div>
-                        
-                        <div
-                            class="flex items-center justify-center gap-1.5 text-yellow-400 text-sm font-bold shrink-0"
-                        >
-                            <span>★★★★★</span>
-                            <span class="text-neutral-400 font-normal ml-1"
-                                >4.7 Rating on Trustpilot</span
-                            >
-                        </div>
+                        {content.showTrustpilot && (
+                            <>
+                                <div class="h-4 w-px bg-white/20 hidden xl:block"></div>
+                                
+                                <div
+                                    class="flex items-center justify-center gap-1.5 text-yellow-400 text-sm font-bold shrink-0"
+                                >
+                                    <span>★★★★★</span>
+                                    <span class="text-neutral-400 font-normal ml-1"
+                                        >4.7 Rating on Trustpilot</span
+                                    >
+                                </div>
+                            </>
+                        )}
                     </div>
             </div>
 
@@ -264,7 +284,7 @@ import { Image } from "astro:assets";
             e.preventDefault();
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // prevent scrolling
+            document.body.style.overflow = 'hidden';
         });
 
         const closeModal = () => {

@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "./Header.astro";
+import Hero from "./Hero.astro";
+import Introduction from "./Introduction.astro";
+import KeyReasons from "./KeyReasons.astro";
+import WhyUs from "./WhyUs.astro";
+import Services from "./Services.astro";
+import Impact from "./Impact.astro";
+import Process from "./Process.astro";
+import Industries from "./Industries.astro";
+import Showcase from "./Showcase.astro";
+import Clients from "./Clients.astro";
+import Testimonials from "./Testimonials.astro";
+import FAQ from "./FAQ.astro";
+import LeadCapture from "./LeadCapture.astro";
+import Footer from "./Footer.astro";
+import { Image } from "astro:assets";
+import FooterImage from "../assets/canva_assets/C3.png";
+import type { HomepageContent } from "../data/homepage/types";
+
+interface Props {
+	content: HomepageContent;
+}
+
+const { content } = Astro.props;
+---
+
+<Layout title={content.meta.title} description={content.meta.description}>
+	<Header />
+	<main>
+		<Hero content={content.hero} />
+		<Introduction aboutUs={content.aboutUs} />
+		<Clients />
+		<KeyReasons content={content.keyReasons} />
+		<WhyUs content={content.whyUs} />
+		<Services content={content.services} />
+		{content.showImpact && <Impact />}
+		<Process content={content.process} />
+		<Industries />
+		<Showcase />
+		<Testimonials />
+		<LeadCapture />
+		<FAQ content={content.faq} />
+
+		<section
+			id="contact"
+			class="py-24 bg-primary text-white text-center relative overflow-hidden"
+		>
+			<div class="absolute inset-0 bg-black/10"></div>
+			<div class="md:grid grid-cols-3">
+				<div class="container mx-auto px-6 relative z-10 col-span-2">
+					<h2
+						class="text-4xl md:text-6xl font-bold mb-6 md:text-left md:ml-15"
+					>
+						{content.finalCta.title}
+					</h2>
+					<p
+						class="text-xl text-white/90 mb-10 content-width mx-auto md:text-left"
+					>
+						{content.finalCta.description}
+					</p>
+					<div class="text-left ml-15">
+						<a
+							href={content.finalCta.buttonHref}
+							class="inline-block px-10 py-5 bg-white text-primary font-bold text-lg rounded-full hover:bg-neutral-100 shadow-xl"
+						>
+							{content.finalCta.buttonText}
+						</a>
+					</div>
+				</div>
+				<Image
+					src={FooterImage}
+					alt={"Dominate your market image"}
+					width={300}
+					height={300}
+					class="w-full h-full col-span-1 rounded-[20%] p-4 hidden md:block"
+				/>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
